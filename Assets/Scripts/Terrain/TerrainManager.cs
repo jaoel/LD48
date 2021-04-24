@@ -68,7 +68,7 @@ namespace LD48 {
         }
 
         private void DoCulling() {
-            int currentDepthIndex = (int)(currentDepth / tileHeight) + 1;
+            int currentDepthIndex = (int)(currentDepth / tileHeight);
             for (int i = 0; i < segments.Count; i++) {
                 Segment segment = segments[i];
                 bool segmentActive = Mathf.Abs(i - currentDepthIndex) <= 1;
@@ -125,7 +125,7 @@ namespace LD48 {
             GameObject parentObject = new GameObject($"Segment - {depthIndex}");
 
             parentObject.transform.SetParent(transform);
-            parentObject.transform.position = new Vector3(0f, -tileHeight * depthIndex, 0f);
+            parentObject.transform.position = new Vector3(0f, -tileHeight * (depthIndex + 1), 0f);
 
             if (segmentAsset.availableResources != null && segmentAsset.availableResources.Count > 0) {
                 for (int i = 0; i < 10; i++) {
