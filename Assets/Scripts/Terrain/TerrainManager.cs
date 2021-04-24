@@ -79,12 +79,12 @@ namespace LD48 {
         }
 
         private void UpdateDrillSegment() {
-            int currentDepthIndex = (int)(dugDepth / tileHeight) + 1;
+            int currentDepthIndex = (int)(dugDepth / tileHeight);
             if (currentDepthIndex >= 0 && currentDepthIndex < segments.Count) {
                 Segment currentSegment = segments[currentDepthIndex];
                 float localDepth = Mathf.Repeat(dugDepth, tileHeight) / tileHeight;
                 float localDrillHeight = drillHeight / tileHeight;
-                mpb.SetColor("_StartColor", Color.Lerp(currentSegment.startColor, currentSegment.endColor, localDepth));
+                mpb.SetColor("_StartColor", currentDepthIndex == 0 ? currentSegment.endColor : Color.Lerp(currentSegment.startColor, currentSegment.endColor, localDepth));
                 mpb.SetColor("_EndColor", Color.Lerp(currentSegment.startColor, currentSegment.endColor, localDepth + localDrillHeight));
                 drillSegment.dynamicRenderer.SetPropertyBlock(mpb);
             }
