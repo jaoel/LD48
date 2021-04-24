@@ -19,6 +19,7 @@ namespace LD48 {
         }
 
         private const float tileHeight = 100f;
+        private const float tileWidth = 20f;
         private const float drillHeight = 16f;
 
         private static MaterialPropertyBlock mpb = null;
@@ -122,8 +123,17 @@ namespace LD48 {
 
         private Segment InstantiateSegment(TerrainSegmentAsset segmentAsset, int depthIndex, Color previousColor) {
             GameObject parentObject = new GameObject($"Segment - {depthIndex}");
+
             parentObject.transform.SetParent(transform);
             parentObject.transform.position = new Vector3(0f, -tileHeight * depthIndex, 0f);
+
+            if (segmentAsset.availableResources != null && segmentAsset.availableResources.Count > 0) {
+                for (int i = 0; i < 1; i++) {
+                    GameObject go = Instantiate(segmentAsset.availableResources[0].gameObject, parentObject.transform);
+                    go.transform.localPosition = new Vector3(-25, 0, 0);
+                }
+            }
+
 
             mpb.SetColor("_StartColor", previousColor);
             mpb.SetColor("_EndColor", segmentAsset.color);
