@@ -26,6 +26,8 @@ namespace LD48 {
         public List<SegmentDefinition> segmentDefinitions = new List<SegmentDefinition>();
         public Color startColor = Color.white;
         public ShaftSegment drillSegment = null;
+        public Transform depthObject = null;
+        public bool debugControls = false;
 
         private float currentDepth = -drillHeight;
         private float dugDepth = -drillHeight;
@@ -42,15 +44,19 @@ namespace LD48 {
         }
 
         private void Update() {
-            if (Input.GetKey(KeyCode.UpArrow)) {
-                currentDepth -= 50f * Time.deltaTime;
+            if (debugControls) {
+                if (Input.GetKey(KeyCode.UpArrow)) {
+                    depthObject.transform.position -= Vector3.up * 50f * Time.deltaTime;
+                }
+
+                if (Input.GetKey(KeyCode.DownArrow)) {
+                    depthObject.transform.position += Vector3.up * 50f * Time.deltaTime;
+                }
             }
 
-            if (Input.GetKey(KeyCode.DownArrow)) {
-                currentDepth += 50f * Time.deltaTime;
-            }
-
+            currentDepth = depthObject.position.y;
             dugDepth = Mathf.Max(currentDepth, dugDepth);
+
             Shader.SetGlobalFloat("_MineshaftDepth", -(dugDepth - currentDepth));
 
             transform.position = Vector3.up * currentDepth;
