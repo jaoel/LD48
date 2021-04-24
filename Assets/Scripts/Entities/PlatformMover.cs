@@ -17,6 +17,9 @@ namespace LD48 {
         [SerializeField]
         public float _acc = 10.0f;
 
+        [SerializeField]
+        public float _deceleration = 10.0f;
+
         private void Awake() {
             
         }
@@ -41,11 +44,11 @@ namespace LD48 {
             }
             else if (!Interacting && _currentSpeed != 0.0f) {
 
-                if (_acc < 0) {
-                    _currentSpeed = Mathf.Min(_currentSpeed - _acc * Time.deltaTime, 0.0f);
+                if (_deceleration < 0) {
+                    _currentSpeed = Mathf.Min(_currentSpeed - _deceleration * Time.deltaTime, 0.0f);
                 }
                 else {
-                    _currentSpeed = Mathf.Max(_currentSpeed - _acc * Time.deltaTime, 0.0f);
+                    _currentSpeed = Mathf.Max(_currentSpeed - _deceleration * Time.deltaTime, 0.0f);
                 }
             }
 

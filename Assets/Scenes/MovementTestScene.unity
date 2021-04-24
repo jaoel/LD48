@@ -266,8 +266,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _holdToInteract: 1
   _level: {fileID: 2117576574}
-  _maxSpeed: 10
-  _acc: 10
+  _maxSpeed: 50
+  _acc: 50
+  _deceleration: 25
 --- !u!54 &110124354
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -768,8 +769,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _holdToInteract: 1
   _level: {fileID: 2117576574}
-  _maxSpeed: -10
-  _acc: -10
+  _maxSpeed: -50
+  _acc: -50
+  _deceleration: -25
 --- !u!54 &470627186
 Rigidbody:
   m_ObjectHideFlags: 0
