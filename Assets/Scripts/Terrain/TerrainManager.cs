@@ -39,12 +39,11 @@ namespace LD48 {
             }
 
             dugDepth = Mathf.Max(currentDepth, dugDepth);
+            Shader.SetGlobalFloat("_MineshaftDepth", -(dugDepth - currentDepth));
 
             transform.position = Vector3.up * currentDepth;
 
             DoCulling();
-
-            Debug.Log(currentDepth);
         }
 
         private void DoCulling() {
