@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1482d54ce369cfd47917c4cad15dc0e9, type: 3}
-  m_Name: Dirt
+  m_Name: Surface
   m_EditorClassIdentifier: 
-  tilePrefab: {fileID: 2691121844710659862, guid: a8870876fc2e90f49b366fc3b600814e, type: 3}
-  shaftPrefab: {fileID: 3941966604714166855, guid: e1d2d14ae086a2f4c883099618355e46, type: 3}
+  tilePrefab: {fileID: 3789885847484705841, guid: 4e5dd2101ec615b4292d4003b9f2971d, type: 3}
+  shaftPrefab: {fileID: 6999707714935538612, guid: b932acd86eb46304ea164b9c50c17267, type: 3}
+  startColor: {r: 0.3647059, g: 0.4862745, b: 0, a: 0}
+  endColor: {r: 0.4862745, g: 0.35686275, b: 0.26666668, a: 0}

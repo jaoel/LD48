@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6561726450890504316
+--- !u!1 &1499767995901681334
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4857711487023751850}
-  - component: {fileID: 6278480329727493291}
-  - component: {fileID: 7188422761826185808}
+  - component: {fileID: 1499767995901681335}
+  - component: {fileID: 1499767995901681329}
+  - component: {fileID: 1499767995901681328}
   m_Layer: 0
-  m_Name: Shaft - Surface
+  m_Name: UndergroundPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4857711487023751850
+--- !u!4 &1499767995901681335
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6561726450890504316}
+  m_GameObject: {fileID: 1499767995901681334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6670955084838660543}
+  m_Father: {fileID: 1499767996341756800}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6278480329727493291
+--- !u!33 &1499767995901681329
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6561726450890504316}
-  m_Mesh: {fileID: 111099700720028785, guid: f3edaafb2718c964c88cf17d0e05dbab, type: 3}
---- !u!23 &7188422761826185808
+  m_GameObject: {fileID: 1499767995901681334}
+  m_Mesh: {fileID: -7361876580455039974, guid: f3edaafb2718c964c88cf17d0e05dbab, type: 3}
+--- !u!23 &1499767995901681328
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6561726450890504316}
+  m_GameObject: {fileID: 1499767995901681334}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0aaad7aa14b88c44481188773efe8558, type: 2}
+  - {fileID: 2100000, guid: 9e59c35a2cadb714d92d73b45eaa4719, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,7 +81,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &6670955084838660540
+--- !u!1 &1499767996341756806
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,39 +89,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6670955084838660543}
-  - component: {fileID: 6670955084838660542}
+  - component: {fileID: 1499767996341756800}
+  - component: {fileID: 1499767996341756807}
   m_Layer: 0
-  m_Name: Shaft - Surface
+  m_Name: UndergroundPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6670955084838660543
+--- !u!4 &1499767996341756800
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6670955084838660540}
+  m_GameObject: {fileID: 1499767996341756806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4857711487023751850}
+  - {fileID: 1499767995901681335}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6670955084838660542
+--- !u!114 &1499767996341756807
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6670955084838660540}
+  m_GameObject: {fileID: 1499767996341756806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f3b3dd5242d0074a8fb7a51a6311e3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 90356b1331adfb842b69a89efc84fd84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dynamicRenderer: {fileID: 1499767995901681328}

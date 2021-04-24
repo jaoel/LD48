@@ -19,11 +19,19 @@ namespace LD48 {
 
         private const float tileHeight = 100f;
 
+        private static MaterialPropertyBlock mpb = null;
+
         public List<SegmentDefinition> segmentDefinitions = new List<SegmentDefinition>();
 
         private float currentDepth = 0f;
         private float dugDepth = 0f;
         private List<Segment> segments = new List<Segment>();
+
+        private void Awake() {
+            if (mpb == null) {
+                mpb = new MaterialPropertyBlock();
+            }
+        }
 
         private void Start() {
             GenerateSegments(10);
@@ -93,16 +101,21 @@ namespace LD48 {
             GameObject parentObject = new GameObject($"Segment - {depthIndex}");
             parentObject.transform.SetParent(transform);
             parentObject.transform.position = new Vector3(0f, -tileHeight * depthIndex, 0f);
-            
+
+            mpb.SetColor("_StartColor", segmentAsset.startColor);
+            mpb.SetColor("_EndColor", segmentAsset.endColor);
+
             TileSegment tileSegment = Instantiate(segmentAsset.tilePrefab, parentObject.transform);
             tileSegment.transform.localPosition = Vector3.zero;
             tileSegment.transform.localRotation = Quaternion.identity;
             tileSegment.transform.localScale = Vector3.one;
+            tileSegment.dynamicRenderer.SetPropertyBlock(mpb);
 
             ShaftSegment shaftSegment = Instantiate(segmentAsset.shaftPrefab, parentObject.transform);
             shaftSegment.transform.localPosition = Vector3.zero;
             shaftSegment.transform.localRotation = Quaternion.identity;
             shaftSegment.transform.localScale = Vector3.one;
+            shaftSegment.dynamicRenderer.SetPropertyBlock(mpb);
 
             Segment segment = new Segment();
             segment.parent = parentObject;
