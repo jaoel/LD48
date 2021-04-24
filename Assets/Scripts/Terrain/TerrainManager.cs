@@ -14,14 +14,18 @@ namespace LD48 {
             public GameObject parent = null;
             public TileSegment tileSegment = null;
             public ShaftSegment shaftSegment = null;
+            public Color startColor;
+            public Color endColor;
         }
 
         private const float tileHeight = 100f;
+        private const float drillHeight = 16f;
 
         private static MaterialPropertyBlock mpb = null;
 
         public List<SegmentDefinition> segmentDefinitions = new List<SegmentDefinition>();
         public Color startColor = Color.white;
+        public ShaftSegment drillSegment = null;
 
         private float currentDepth = 0f;
         private float dugDepth = 0f;
@@ -51,6 +55,8 @@ namespace LD48 {
 
             transform.position = Vector3.up * currentDepth;
 
+            UpdateDrillSegment();
+
             DoCulling();
         }
 
@@ -63,6 +69,20 @@ namespace LD48 {
                     segment.parent.SetActive(segmentActive);
                 }
             }
+        }
+
+        private void UpdateDrillSegment() {
+            int currentDepthIndex = (int)(dugDepth / tileHeight) + 1;
+            if (currentDepthIndex >= 0 && currentDepthIndex < segments.Count) {
+                Segment currentSegment = segments[currentDepthIndex];
+                float localDepth = Mathf.Repeat(dugDepth, tileHeight) / tileHeight;
+                float localDrillHeight = drillHeight / tileHeight;
+                mpb.SetColor("_StartColor", Color.Lerp(currentSegment.startColor, currentSegment.endColor, localDepth));
+                mpb.SetColor("_EndColor", Color.Lerp(currentSegment.startColor, currentSegment.endColor, localDepth + localDrillHeight));
+                drillSegment.dynamicRenderer.SetPropertyBlock(mpb);
+            }
+
+            drillSegment.transform.localPosition = -Vector3.up * dugDepth;
         }
 
         private void GenerateSegments(int maxDepth = 100) {
@@ -118,6 +138,8 @@ namespace LD48 {
             segment.parent = parentObject;
             segment.tileSegment = tileSegment;
             segment.shaftSegment = shaftSegment;
+            segment.startColor = previousColor;
+            segment.endColor = segmentAsset.color;
             return segment;
         }
     }
