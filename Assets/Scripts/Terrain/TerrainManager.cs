@@ -27,8 +27,8 @@ namespace LD48 {
         public Color startColor = Color.white;
         public ShaftSegment drillSegment = null;
 
-        private float currentDepth = 0f;
-        private float dugDepth = 0f;
+        private float currentDepth = -drillHeight;
+        private float dugDepth = -drillHeight;
         private List<Segment> segments = new List<Segment>();
 
         private void Awake() {
