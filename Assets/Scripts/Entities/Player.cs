@@ -25,16 +25,16 @@ namespace LD48 {
 
                 Vector3 forward = Vector3.zero;
                 Vector3 velocity = new Vector3(_speed, 9.82f, _speed);
-                if (Input.GetKey(KeyCode.A)) {
+                if (Input.GetKey(KeyCode.D)) {
                     forward.x = -1;
                 }
-                else if (Input.GetKey(KeyCode.D)) {
+                else if (Input.GetKey(KeyCode.A)) {
                     forward.x = 1;
                 }
 
-                if (Input.GetKey(KeyCode.W)) {
+                if (Input.GetKey(KeyCode.S)) {
                     forward.z = 1;
-                } else if (Input.GetKey(KeyCode.S)) {
+                } else if (Input.GetKey(KeyCode.W)) {
                     forward.z = -1;
                 }
 
