@@ -6,7 +6,6 @@ namespace LD48 {
         [System.Serializable]
         public class SegmentDefinition {
             public TerrainSegmentAsset segment = null;
-            public TerrainSegmentAsset transitionSegment = null;
             public int repeatCountMin = 1;
             public int repeatCountMax = 1;
         }
@@ -22,6 +21,7 @@ namespace LD48 {
         private static MaterialPropertyBlock mpb = null;
 
         public List<SegmentDefinition> segmentDefinitions = new List<SegmentDefinition>();
+        public Color startColor = Color.white;
 
         private float currentDepth = 0f;
         private float dugDepth = 0f;
@@ -67,9 +67,10 @@ namespace LD48 {
 
         private void GenerateSegments(int maxDepth = 100) {
             int depth = 0;
+            Color previousColor = startColor;
 
             bool AddSegment(TerrainSegmentAsset terrainSegmentAsset) {
-                Segment segment = InstantiateSegment(terrainSegmentAsset, depth);
+                Segment segment = InstantiateSegment(terrainSegmentAsset, depth, previousColor);
                 segments.Add(segment);
                 depth++;
 
@@ -87,23 +88,19 @@ namespace LD48 {
                     if (AddSegment(segmentDefinition.segment)) {
                         return;
                     }
-                }
 
-                if (segmentDefinition.transitionSegment != null) {
-                    if (AddSegment(segmentDefinition.transitionSegment)) {
-                        return;
-                    }
+                    previousColor = segmentDefinition.segment.color;
                 }
             }
         }
 
-        private Segment InstantiateSegment(TerrainSegmentAsset segmentAsset, int depthIndex) {
+        private Segment InstantiateSegment(TerrainSegmentAsset segmentAsset, int depthIndex, Color previousColor) {
             GameObject parentObject = new GameObject($"Segment - {depthIndex}");
             parentObject.transform.SetParent(transform);
             parentObject.transform.position = new Vector3(0f, -tileHeight * depthIndex, 0f);
 
-            mpb.SetColor("_StartColor", segmentAsset.startColor);
-            mpb.SetColor("_EndColor", segmentAsset.endColor);
+            mpb.SetColor("_StartColor", previousColor);
+            mpb.SetColor("_EndColor", segmentAsset.color);
 
             TileSegment tileSegment = Instantiate(segmentAsset.tilePrefab, parentObject.transform);
             tileSegment.transform.localPosition = Vector3.zero;

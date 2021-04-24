@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1499767996341756807, guid: e4a3a21b48b0c9940b1bef76a1ed0e58, type: 3}
   shaftPrefab: {fileID: 4501381092424816397, guid: e0c7db8fe5761684ab2e7f970747520e, type: 3}
-  startColor: {r: 0.3882353, g: 0.31764707, b: 0.27058825, a: 0}
-  endColor: {r: 0.3882353, g: 0.31764707, b: 0.27058825, a: 0}
+  color: {r: 0.3882353, g: 0.31764707, b: 0.27058825, a: 0}

@@ -5,7 +5,6 @@ namespace LD48 {
     public class TerrainSegmentAsset : ScriptableObject {
         public TileSegment tilePrefab = null;
         public ShaftSegment shaftPrefab = null;
-        public Color startColor;
-        public Color endColor;
+        public Color color;
     }
 }

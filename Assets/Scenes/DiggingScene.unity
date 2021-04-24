@@ -154,13 +154,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   segmentDefinitions:
   - segment: {fileID: 11400000, guid: b26d9598fe1375d48a263095ffd18a70, type: 2}
-    transitionSegment: {fileID: 11400000, guid: f7a8f9a8594f31548b0a9fac726c58de, type: 2}
     repeatCountMin: 1
     repeatCountMax: 1
+  - segment: {fileID: 11400000, guid: f7a8f9a8594f31548b0a9fac726c58de, type: 2}
+    repeatCountMin: 2
+    repeatCountMax: 2
   - segment: {fileID: 11400000, guid: 82d1bf0609221894f85841ac14a4bd40, type: 2}
-    transitionSegment: {fileID: 0}
     repeatCountMin: 5
     repeatCountMax: 5
+  - segment: {fileID: 11400000, guid: 903ddc15bb324784e8213f3f6e2f9b1c, type: 2}
+    repeatCountMin: 5
+    repeatCountMax: 5
+  startColor: {r: 0.3647059, g: 0.4862745, b: 0, a: 1}
 --- !u!4 &568446956
 Transform:
   m_ObjectHideFlags: 0
