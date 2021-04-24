@@ -50,8 +50,6 @@ namespace LD48 {
                         forward.y = -1.0f;
                     }
 
-                    Debug.Log(forward);
-
                     _characterController.Move(Vector3.Scale(forward.normalized, velocity * Time.deltaTime));
                 }
             }
