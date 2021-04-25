@@ -4,10 +4,6 @@ using UnityEngine;
 
 namespace LD48 {
     public class PlatformMover : Interactable {
-
-        [SerializeField]
-        private Drill _drill = null;
-
         private float _currentSpeed = 0.0f;
 
         [SerializeField]
@@ -52,11 +48,11 @@ namespace LD48 {
             }
 
             if (_currentSpeed != 0.0f) {
-                Vector3 levelPos = _drill.transform.position;
+                Vector3 levelPos = Level.Instance.transform.position;
                 levelPos.y += _currentSpeed * Time.deltaTime;
 
-                if (_drill != null) {
-                    _drill.MoveDrill(levelPos.y);
+                if (Level.Instance != null) {
+                    Level.Instance.MoveLevel(levelPos.y);
                 }
 
                 FuelController.Instance.UpdateFuel(-1.0f);
