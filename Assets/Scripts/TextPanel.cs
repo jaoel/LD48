@@ -6,6 +6,7 @@ namespace LD48 {
         public TMPro.TextMeshProUGUI text;
         public RectTransform rectTransform;
         public CanvasGroup canvasGroup;
+        public AudioSource audioSource;
 
         private void Awake() {
             rectTransform = GetComponent<RectTransform>();
@@ -13,6 +14,9 @@ namespace LD48 {
         }
 
         public void SetAlpha(float alpha) {
+            if (canvasGroup.alpha == 0f && alpha > 0f) {
+                audioSource.Play();
+            }
             canvasGroup.alpha = Mathf.Clamp01(alpha);
         }
     }
