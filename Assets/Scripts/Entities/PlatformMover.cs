@@ -8,10 +8,6 @@ namespace LD48 {
         [SerializeField]
         private Drill _drill = null;
 
-        [SerializeField]
-        private FuelController _fuelController = null;
-
-
         private float _currentSpeed = 0.0f;
 
         [SerializeField]
@@ -63,9 +59,7 @@ namespace LD48 {
                     _drill.MoveDrill(levelPos.y);
                 }
 
-                _fuelController.UpdateFuel(-1.0f);
-
-                //_drill.transform.position = levelPos;
+                FuelController.Instance.UpdateFuel(-1.0f);
             }
         }
     }

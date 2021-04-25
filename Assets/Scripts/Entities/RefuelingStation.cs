@@ -5,15 +5,10 @@ using UnityEngine;
 namespace LD48 {
     public class RefuelingStation : Interactable {
 
-        [SerializeField]
-        private FuelController _fuelController = null;
-
         protected override void OnInteract() {
             base.OnInteract();
 
-            if (_fuelController != null) {
-                _fuelController.UpdateFuel(1.0f);
-            }
+            FuelController.Instance.UpdateFuel(1.0f);
         }
 
         protected override void OnRelease() {

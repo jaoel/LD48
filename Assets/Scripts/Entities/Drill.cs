@@ -8,16 +8,8 @@ namespace LD48 {
         private float _currentDepth = 0.0f;
         private float _maxDepth = 0.0f;
 
-        [SerializeField]
-        private FuelController _fuelController = null;
-
-        private void Awake() {
-            _fuelController = GetComponent<FuelController>();
-        }
-
-
         public void MoveDrill(float newY) {
-            if (newY >= _maxDepth && _fuelController.Fuel <= 0.0f) {
+            if (newY >= _maxDepth && FuelController.Instance.Fuel <= 0.0f) {
                 return;
             }
 

@@ -8,9 +8,6 @@ namespace LD48 {
         [SerializeField]
         private Probe _probe = null;
 
-        [SerializeField]
-        private FuelController _fuelController = null;
-
         private void Awake() {
 
         }
@@ -26,7 +23,7 @@ namespace LD48 {
         protected override void OnInteract() {
             base.OnInteract();
 
-            if (_fuelController.Fuel > 0.0f) {
+            if (FuelController.Instance.Fuel > 0.0f) {
                 _probe.Fire();
             }
         }

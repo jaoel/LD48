@@ -60,6 +60,8 @@ namespace LD48 {
         private void OnTriggerEnter(Collider other) {
             Resource resource = other.GetComponentInParent<Resource>();
 
+            Player.Instance.Resources += resource.Value;
+
             Destroy(resource.gameObject);
 
             _direction = -transform.forward;

@@ -13,6 +13,8 @@ namespace LD48 {
         public float _speed = 7.0f;
         private float _acceleration = 0.0f;
 
+        public int Resources { get; set; }
+
         private void Awake() {
             if (Instance != null) {
                 Debug.LogError("Player already exists");
@@ -20,6 +22,10 @@ namespace LD48 {
                 return;
             }
             Instance = this;
+        }
+
+        private void OnGUI() {
+            GUI.Label(new Rect(0, 200, 100, 100), Resources.ToString());
         }
 
         public void Teleport(Vector3 position) {
