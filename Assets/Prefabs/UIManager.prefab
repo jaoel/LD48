@@ -218,6 +218,7 @@ MonoBehaviour:
   camera: {fileID: 0}
   canvasRect: {fileID: 6325378861584186283}
   worldCanvasWrapper: {fileID: 6325378862275690530}
+  pauseMenu: {fileID: 1860296650914400656}
   textPanelPrefab: {fileID: 2878386930354151572, guid: 4f263a22fc6480f41b3fd134c055e563, type: 3}
 --- !u!1 &6325378861584186280
 GameObject:
@@ -718,6 +719,10 @@ PrefabInstance:
       propertyPath: parameterName
       value: MasterVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 4911202728562991254, guid: 5ac9aad2504770a49bf2d77eb935b09f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 48791b17493f30845b1b21e4d9439c9e, type: 2}
     - target: {fileID: 8877272864543047557, guid: 5ac9aad2504770a49bf2d77eb935b09f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -852,6 +857,10 @@ PrefabInstance:
       propertyPath: parameterName
       value: MusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 4911202728562991254, guid: 5ac9aad2504770a49bf2d77eb935b09f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2842140801609587435, guid: 48791b17493f30845b1b21e4d9439c9e, type: 2}
     - target: {fileID: 8877272864543047557, guid: 5ac9aad2504770a49bf2d77eb935b09f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -986,6 +995,10 @@ PrefabInstance:
       propertyPath: parameterName
       value: SfxVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 4911202728562991254, guid: 5ac9aad2504770a49bf2d77eb935b09f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 3774749681853486660, guid: 48791b17493f30845b1b21e4d9439c9e, type: 2}
     - target: {fileID: 8877272864543047557, guid: 5ac9aad2504770a49bf2d77eb935b09f, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

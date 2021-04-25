@@ -18,6 +18,7 @@ namespace LD48 {
         public new Camera camera = null;
         public RectTransform canvasRect = null;
         public RectTransform worldCanvasWrapper = null;
+        public GameObject pauseMenu = null;
 
         public TextPanel textPanelPrefab = null;
 
@@ -25,6 +26,13 @@ namespace LD48 {
 
         private void Awake() {
             Instance = this;
+        }
+
+        private void Start() {
+            foreach (AudioSlider audioSlider in pauseMenu.GetComponentsInChildren<AudioSlider>()) {
+                audioSlider.Init();
+            }
+            pauseMenu.SetActive(false);
         }
 
         private void Update() {
@@ -40,6 +48,16 @@ namespace LD48 {
                         entry.panel.SetAlpha(1f - refreshTime / fadeTime);
                         UpdatePanelWorldPosition(entry.panel, entry.target);
                     }
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                if (Time.timeScale == 1f) {
+                    Time.timeScale = 0f;
+                    pauseMenu.SetActive(true);
+                } else {
+                    Time.timeScale = 1f;
+                    pauseMenu.SetActive(false);
                 }
             }
         }
