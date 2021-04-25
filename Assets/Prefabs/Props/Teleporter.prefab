@@ -5037,6 +5037,7 @@ Transform:
   - {fileID: 4615792617896390380}
   - {fileID: 7789202539666197923}
   - {fileID: 5029829584526260190}
+  - {fileID: 2710039213531905823}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5058,6 +5059,7 @@ MonoBehaviour:
   closedTarget: {fileID: 1250910067878778021}
   openTarget: {fileID: 1250910067562953308}
   teleportTargetPos: {fileID: 5029829584526260190}
+  tutorialPos: {fileID: 2710039213531905823}
   useParticleSystem: {fileID: 1250910068917670230}
   activeParticleSystem: {fileID: 1250910067792857293}
 --- !u!65 &4542810846189373796
@@ -10090,3 +10092,33 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.3020315, z: 0.55573463}
   m_Center: {x: 0, y: 1.6510158, z: -1.0282955}
+--- !u!1 &4987883715248582182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2710039213531905823}
+  m_Layer: 0
+  m_Name: TutorialPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2710039213531905823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987883715248582182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.889, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1250910068131429973}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

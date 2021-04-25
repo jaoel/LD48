@@ -2,11 +2,14 @@
 
 namespace LD48 {
     public class Teleporter : Interactable {
+        public static bool hasSeenTeleportTutorial = false;
+
         public Teleporter targetTeleporter = null;
         public Transform movingPart = null;
         public Transform closedTarget = null;
         public Transform openTarget = null;
         public Transform teleportTargetPos = null;
+        public Transform tutorialPos = null;
         public ParticleSystem useParticleSystem = null;
         public ParticleSystem activeParticleSystem = null;
 
@@ -38,6 +41,7 @@ namespace LD48 {
 
         public void Teleport(Player player) {
             if (!receivedTeleport && player != null && targetTeleporter != null) {
+                hasSeenTeleportTutorial = true;
                 player.Teleport(targetTeleporter.teleportTargetPos.position);
                 useParticleSystem.Play();
                 targetTeleporter.useParticleSystem.Play();
@@ -70,6 +74,12 @@ namespace LD48 {
                 openness = Mathf.MoveTowards(openness, targetOpenness, Time.deltaTime * 5f);
 
                 movingPart.transform.localPosition = Vector3.Lerp(closedTarget.localPosition, openTarget.localPosition, openness);
+            }
+
+            if (!hasSeenTeleportTutorial && PlayerInReach) {
+                if (UIManager.Instance != null) {
+                    UIManager.Instance.DisplayTextPanel(tutorialPos, "Press [Space] to\nuse teleporter.");
+                }
             }
         }
 
