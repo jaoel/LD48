@@ -4,12 +4,23 @@ using UnityEngine;
 
 namespace LD48 {
     public class Player : MonoBehaviour {
+        public static Player Instance { get; private set; } = null;
+
         [SerializeField]
         private CharacterController _characterController = null;
 
         private float _maxSpeed = 10.0f;
         public float _speed = 7.0f;
         private float _acceleration = 0.0f;
+
+        private void Awake() {
+            if (Instance != null) {
+                Debug.LogError("Player already exists");
+                DestroyImmediate(gameObject);
+                return;
+            }
+            Instance = this;
+        }
 
         public void Teleport(Vector3 position) {
             _characterController.enabled = false;

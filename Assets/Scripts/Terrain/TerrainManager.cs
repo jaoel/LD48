@@ -92,6 +92,17 @@ namespace LD48 {
             drillSegment.transform.localPosition = -Vector3.up * dugDepth;
         }
 
+        public bool TryGetCurrentSegment(out Segment currentSegment) {
+            int currentDepthIndex = (int)(currentDepth / tileHeight);
+            if (currentDepthIndex >= 0 && currentDepthIndex < segments.Count) {
+                currentSegment = segments[currentDepthIndex];
+                return true;
+            }
+
+            currentSegment = null;
+            return false;
+        }
+
         private void GenerateSegments(int maxDepth = 100) {
             int depth = 0;
             Color previousColor = startColor;

@@ -9,6 +9,10 @@ namespace LD48 {
         public Transform drill = null;
         public float wheelRadius = 2.045f;
         public float drillSpeed = 0f;
+        public GameObject hiddenParts = null;
+        public TerrainManager terrainManager = null;
+        public Teleporter teleporter = null;
+        public Teleporter surfaceTeleporter = null;
 
         private float currentDrillRotation = 0f;
 
@@ -25,6 +29,29 @@ namespace LD48 {
                 }
 
                 drill.localRotation = Quaternion.Euler(0f, currentDrillRotation, 0f);
+            }
+
+            Vector3 centerToPlayer = Player.Instance.transform.position - transform.position;
+            centerToPlayer.y = 0f;
+
+            if (centerToPlayer.magnitude <= 10f) {
+                if (hiddenParts.activeSelf) {
+                    hiddenParts.SetActive(false);
+                }
+            } else {
+                if (!hiddenParts.activeSelf) {
+                    hiddenParts.SetActive(true);
+                }
+            }
+
+            if (terrainManager.TryGetCurrentSegment(out var currentSegment) && currentSegment.tileSegment.teleporter != null && Mathf.Abs(currentSegment.tileSegment.teleporter.transform.position.y - transform.position.y) < 2f) {
+                if (teleporter.targetTeleporter == null) {
+                    teleporter.SetTargetTeleporter(currentSegment.tileSegment.teleporter);
+                }
+            } else {
+                if (teleporter.targetTeleporter != null) {
+                    teleporter.SetTargetTeleporter(null);
+                }
             }
         }
     }

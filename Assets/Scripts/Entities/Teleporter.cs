@@ -59,15 +59,16 @@ namespace LD48 {
 
             targetOpenness = CanUse ? 1f : 0f;
 
+            if (CanUse && activeParticleSystem.isStopped) {
+                activeParticleSystem.Play();
+            } else if (!CanUse && activeParticleSystem.isPlaying) {
+                activeParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+
             if (openness != targetOpenness) {
                 openness = Mathf.MoveTowards(openness, targetOpenness, Time.deltaTime * 5f);
 
                 movingPart.transform.localPosition = Vector3.Lerp(closedTarget.localPosition, openTarget.localPosition, openness);
-                if (openness == 0f) {
-                    activeParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                } else if (openness == 1f) {
-                    activeParticleSystem.Play();
-                }
             }
         }
 

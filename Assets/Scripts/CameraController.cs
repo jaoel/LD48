@@ -34,7 +34,15 @@ namespace LD48 {
 
         private void Update() {
             Vector3 toPlatform = _playerTransform.position - _platformCenter;
-            if (toPlatform.magnitude > 75f) {
+            float horizontalDistance = new Vector2(toPlatform.x, toPlatform.z).magnitude;
+            if (horizontalDistance < 10f) {
+                Vector3 newTarget = _platformCenter;
+                newTarget.y = _playerTransform.position.y;
+                newTarget = Vector3.Lerp(_playerTransform.position, newTarget, 0.85f);
+                targetPos = Vector3.SmoothDamp(targetPos, newTarget, ref smoothDampVelV3, 1f, 10f, Time.deltaTime);
+                zoomLevel = Mathf.SmoothDamp(zoomLevel, 0.5f, ref zoomSmoothDampVelF, 1f, 8f, Time.deltaTime);
+            }
+            else if (toPlatform.magnitude > 75f) {
                 targetPos = Vector3.SmoothDamp(targetPos, _playerTransform.position, ref smoothDampVelV3, 1f, 20f, Time.deltaTime);
                 zoomLevel = Mathf.SmoothDamp(zoomLevel, 0.75f, ref zoomSmoothDampVelF, 1f, 8f, Time.deltaTime);
             } else {
