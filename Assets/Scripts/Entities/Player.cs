@@ -26,10 +26,6 @@ namespace LD48 {
             Instance = this;
         }
 
-        private void OnGUI() {
-            GUI.Label(new Rect(0, 200, 100, 100), Resources.ToString());
-        }
-
         public void Teleport(Vector3 position) {
             _characterController.enabled = false;
             transform.position = position;
@@ -71,6 +67,8 @@ namespace LD48 {
 
                 animator.SetFloat("RunSpeed", forward.magnitude);
             }
+
+            UIManager.Instance.resourcesText.SetText(Resources.ToString());
         }
     }
 }

@@ -20,6 +20,9 @@ namespace LD48 {
         public RectTransform worldCanvasWrapper = null;
         public GameObject pauseMenu = null;
 
+        public TMPro.TextMeshProUGUI fuelText = null;
+        public TMPro.TextMeshProUGUI resourcesText = null;
+
         public TextPanel textPanelPrefab = null;
 
         private List<TextPanelEntry> panelEntries = new List<TextPanelEntry>();

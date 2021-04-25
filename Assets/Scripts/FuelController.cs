@@ -18,16 +18,16 @@ namespace LD48 {
             Instance = this;
 
             Fuel = _maxFuel;
+
+            UIManager.Instance.fuelText.SetText(((int)Fuel).ToString());
         }
 
         public void UpdateFuel(float rate) {
             Fuel += rate * Time.deltaTime;
 
             Fuel = Mathf.Max(Mathf.Min(Fuel, _maxFuel), 0.0f);
-        }
 
-        private void OnGUI() {
-            GUI.Label(new Rect(0, 0, 100, 20), Fuel.ToString());
+            UIManager.Instance.fuelText.SetText(((int)Fuel).ToString());
         }
 
         public void UpdateMax(float newMax) {
