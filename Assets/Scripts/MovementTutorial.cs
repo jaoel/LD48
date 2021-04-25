@@ -18,7 +18,7 @@ namespace LD48 {
 
         private void Update() {
             if (Time.time > beginShowTime && !hasSeenTutorial) {
-                UIManager.Instance.DisplayTextPanel(Player.Instance.tutorialTransform, "Move around:\nW A S D");
+                UIManager.Instance.DisplayTextPanel(Player.Instance.tutorialTransform, "Move around\n with [WASD]");
             }
         }
     }

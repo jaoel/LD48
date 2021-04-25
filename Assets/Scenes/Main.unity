@@ -471,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 821565060}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 27.81, z: 44.89}
+  m_LocalPosition: {x: 82.89, y: 27.81, z: 44.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1743401986}
@@ -493,7 +493,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 1847959154}
   _platformCenter: {x: 0, y: 0, z: 0}
   _lerpRate: 50
-  zoomLevel: 0
+  zoomLevel: 0.8
   camera: {fileID: 1743401985}
 --- !u!4 &1043269340 stripped
 Transform:
@@ -723,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3789885847484705840, guid: 4e5dd2101ec615b4292d4003b9f2971d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3789885847484705854, guid: 4e5dd2101ec615b4292d4003b9f2971d, type: 3}
       propertyPath: m_RootOrder
