@@ -54,8 +54,7 @@ namespace LD48 {
 
                 if (Level.Instance.CheckIfDigging(newPos)) {
                     levelPos.y += _currentSpeed * Time.deltaTime * 0.2f;
-
-
+                    FuelController.Instance.UpdateFuel(-1.0f);
                 } else {
                     levelPos.y += _currentSpeed * Time.deltaTime;
                 }
@@ -64,7 +63,6 @@ namespace LD48 {
                     Level.Instance.MoveLevel(levelPos.y);
                 }
 
-                FuelController.Instance.UpdateFuel(-1.0f);
             }
         }
     }
