@@ -37,7 +37,6 @@ namespace LD48 {
         }
 
         private void Update() {
-
             if (_characterController != null) {
 
                 Vector3 forward = Vector3.zero;
