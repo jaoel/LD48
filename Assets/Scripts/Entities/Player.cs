@@ -10,6 +10,7 @@ namespace LD48 {
         private CharacterController _characterController = null;
 
         public Animator animator = null;
+        public Transform tutorialTransform = null;
 
         private float _maxSpeed = 10.0f;
         public float _speed = 7.0f;

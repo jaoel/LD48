@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LD48 {
@@ -18,7 +16,9 @@ namespace LD48 {
             Instance = this;
 
             Fuel = _maxFuel;
+        }
 
+        private void Start() {
             UIManager.Instance.fuelText.SetText(((int)Fuel).ToString());
         }
 
