@@ -6,6 +6,7 @@ namespace LD48 {
         public Transform movingPart = null;
         public Transform closedTarget = null;
         public Transform openTarget = null;
+        public Transform teleportTargetPos = null;
         public ParticleSystem useParticleSystem = null;
         public ParticleSystem activeParticleSystem = null;
 
@@ -37,7 +38,7 @@ namespace LD48 {
 
         public void Teleport(Player player) {
             if (!receivedTeleport && player != null && targetTeleporter != null) {
-                player.Teleport(targetTeleporter.transform.position);
+                player.Teleport(targetTeleporter.teleportTargetPos.position);
                 useParticleSystem.Play();
                 targetTeleporter.useParticleSystem.Play();
                 targetTeleporter.receivedTeleport = true;

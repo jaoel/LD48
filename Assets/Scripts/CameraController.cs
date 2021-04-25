@@ -40,14 +40,14 @@ namespace LD48 {
                 newTarget.y = _playerTransform.position.y;
                 newTarget = Vector3.Lerp(_playerTransform.position, newTarget, 0.85f);
                 targetPos = Vector3.SmoothDamp(targetPos, newTarget, ref smoothDampVelV3, 1f, 10f, Time.deltaTime);
-                zoomLevel = Mathf.SmoothDamp(zoomLevel, 0.5f, ref zoomSmoothDampVelF, 1f, 8f, Time.deltaTime);
-            }
-            else if (toPlatform.magnitude > 75f) {
-                targetPos = Vector3.SmoothDamp(targetPos, _playerTransform.position, ref smoothDampVelV3, 1f, 20f, Time.deltaTime);
                 zoomLevel = Mathf.SmoothDamp(zoomLevel, 0.75f, ref zoomSmoothDampVelF, 1f, 8f, Time.deltaTime);
+            }
+            else if (toPlatform.magnitude > 40f) {
+                targetPos = Vector3.SmoothDamp(targetPos, _playerTransform.position, ref smoothDampVelV3, 0.25f, 20f, Time.deltaTime);
+                zoomLevel = Mathf.SmoothDamp(zoomLevel, 0.85f, ref zoomSmoothDampVelF, 1f, 8f, Time.deltaTime);
             } else {
                 targetPos = Vector3.SmoothDamp(targetPos, toPlatform / 2f, ref smoothDampVelV3, 2f, 10f, Time.deltaTime);
-                zoomLevel = Mathf.SmoothDamp(zoomLevel, 0f, ref zoomSmoothDampVelF, 1f, 0.1f, Time.deltaTime);
+                zoomLevel = Mathf.SmoothDamp(zoomLevel, 0.25f, ref zoomSmoothDampVelF, 1f, 0.1f, Time.deltaTime);
             }
 
             Vector3 position = transform.position;
