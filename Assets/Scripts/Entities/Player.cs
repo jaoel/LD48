@@ -11,12 +11,10 @@ namespace LD48 {
         public float _speed = 7.0f;
         private float _acceleration = 0.0f;
 
-        private void Awake() {
-            
-        }
-
-        private void Start() {
-
+        public void Teleport(Vector3 position) {
+            _characterController.enabled = false;
+            transform.position = position;
+            _characterController.enabled = true;
         }
 
         private void Update() {

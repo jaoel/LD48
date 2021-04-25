@@ -8,6 +8,7 @@ namespace LD48 {
         public bool IsInteractable { get; protected set; } = true;
         public bool Interacting { get; private set; } = false;
 
+        protected Player interactingPlayer = null;
 
         [SerializeField]
         private bool _holdToInteract = false;
@@ -29,10 +30,20 @@ namespace LD48 {
         }
 
         protected void OnTriggerEnter(Collider other) {
-            PlayerInReach = true;
+            if (other.gameObject.TryGetComponent(out Player player)) {
+                interactingPlayer = player;
+                PlayerInReach = true;
+            }
         }
 
         protected void OnTriggerExit(Collider other) {
+            if (other.gameObject.TryGetComponent(out Player player)) {
+                HandleExit(player);
+            }
+        }
+
+        protected void HandleExit(Player player) {
+            interactingPlayer = null;
             PlayerInReach = false;
 
             if (Interacting) {
