@@ -8,6 +8,8 @@ namespace LD48 {
         public bool IsInteractable { get; protected set; } = true;
         public bool Interacting { get; private set; } = false;
 
+        public Transform interactMarkerPosition = null;
+
         protected Player interactingPlayer = null;
 
         [SerializeField]
@@ -26,6 +28,10 @@ namespace LD48 {
                 else if (Interacting) {
                     OnRelease();
                 }
+            }
+
+            if (interactMarkerPosition != null && PlayerInReach) {
+                UIManager.Instance.DisplayInteractMarker(interactMarkerPosition);
             }
         }
 

@@ -20,12 +20,16 @@ namespace LD48 {
         public RectTransform worldCanvasWrapper = null;
         public GameObject pauseMenu = null;
 
+        public RectTransform interactMarker = null;
+
         public TMPro.TextMeshProUGUI fuelText = null;
         public TMPro.TextMeshProUGUI resourcesText = null;
 
         public TextPanel textPanelPrefab = null;
 
         private List<TextPanelEntry> panelEntries = new List<TextPanelEntry>();
+
+        private float lastInteractMarkerFrame = 0;
 
         private void Awake() {
             Instance = this;
@@ -49,7 +53,7 @@ namespace LD48 {
                         DestroyPanelEntry(entry);
                     } else {
                         entry.panel.SetAlpha(1f - refreshTime / fadeTime);
-                        UpdatePanelWorldPosition(entry.panel, entry.target);
+                        UpdatePanelWorldPosition(entry.panel.rectTransform, entry.target);
                     }
                 }
             }
@@ -63,6 +67,21 @@ namespace LD48 {
                     pauseMenu.SetActive(false);
                 }
             }
+
+            if (lastInteractMarkerFrame < Time.frameCount - 1) {
+                if (interactMarker.gameObject.activeSelf) {
+                    interactMarker.gameObject.SetActive(false);
+                }
+            } else {
+                if (!interactMarker.gameObject.activeSelf) {
+                    interactMarker.gameObject.SetActive(true);
+                }
+            }
+        }
+
+        public void DisplayInteractMarker(Transform target) {
+            UpdatePanelWorldPosition(interactMarker, target);
+            lastInteractMarkerFrame = Time.frameCount;
         }
 
         public void DisplayTextPanel(Transform worldTarget, string text) {
@@ -85,7 +104,7 @@ namespace LD48 {
                 panel = newPanel,
                 refreshTime = Time.time,
             });
-            UpdatePanelWorldPosition(newPanel, worldTarget);
+            UpdatePanelWorldPosition(newPanel.rectTransform, worldTarget);
         }
 
         private void DestroyPanelEntry(TextPanelEntry entry) {
@@ -93,14 +112,14 @@ namespace LD48 {
             panelEntries.Remove(entry);
         }
 
-        private void UpdatePanelWorldPosition(TextPanel panel, Transform target) {
+        private void UpdatePanelWorldPosition(RectTransform rectTransform, Transform target) {
             Vector2 viewportPosition = camera.WorldToViewportPoint(target.position);
             Vector2 WorldObject_ScreenPosition = new Vector2(
                 (viewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f),
                 (viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)
             );
 
-            panel.rectTransform.anchoredPosition = WorldObject_ScreenPosition;
+            rectTransform.anchoredPosition = WorldObject_ScreenPosition;
         }
     }
 }
