@@ -9,6 +9,8 @@ namespace LD48 {
         [SerializeField]
         private CharacterController _characterController = null;
 
+        public Animator animator = null;
+
         private float _maxSpeed = 10.0f;
         public float _speed = 7.0f;
         private float _acceleration = 0.0f;
@@ -67,6 +69,8 @@ namespace LD48 {
 
                     _characterController.Move(Vector3.Scale(forward.normalized, velocity * Time.deltaTime));
                 }
+
+                animator.SetFloat("RunSpeed", forward.magnitude);
             }
         }
     }

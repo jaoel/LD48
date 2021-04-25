@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterController: {fileID: 1395368901040734380}
+  animator: {fileID: 1261493339974138413}
   _speed: 10
 --- !u!136 &8350714307755198600
 CapsuleCollider:
@@ -244,6 +245,25 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &1261493339974138413
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2272125477365046394}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 661d11c5e35227b4f9bb23694df99349, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1389747258651074859
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -303,8 +323,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8417361359673230750, guid: b60a932b754415a42a86fea718587025, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66a261c29bcea18439d25d2ea8fb656b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b60a932b754415a42a86fea718587025, type: 3}
+--- !u!1 &2272125477365046394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b60a932b754415a42a86fea718587025, type: 3}
+  m_PrefabInstance: {fileID: 1389747258651074859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1496293186711389888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b60a932b754415a42a86fea718587025, type: 3}
