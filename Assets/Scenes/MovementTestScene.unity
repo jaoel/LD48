@@ -389,6 +389,8 @@ MonoBehaviour:
   _playerTransform: {fileID: 151934462}
   _platformCenter: {x: 0, y: 0, z: 0}
   _lerpRate: 725
+  zoomLevel: 0
+  camera: {fileID: 1046549892}
 --- !u!1 &1141596110
 GameObject:
   m_ObjectHideFlags: 0
