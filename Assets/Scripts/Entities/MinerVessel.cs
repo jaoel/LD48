@@ -4,24 +4,18 @@ using UnityEngine;
 
 namespace LD48 {
     public class MinerVessel : MonoBehaviour {
+        public Transform depthObject = null;
         public List<Transform> wheelTransforms = new List<Transform>();
         public Transform drill = null;
-        public float wheelSpeed = 0f;
+        public float wheelRadius = 2.045f;
         public float drillSpeed = 0f;
 
-        private float currentWheelRotation = 0f;
         private float currentDrillRotation = 0f;
 
         private void Update() {
-            if (wheelSpeed != 0f) {
-                currentWheelRotation += wheelSpeed * Time.deltaTime;
-                if (currentWheelRotation > 360f) {
-                    currentWheelRotation -= 360f;
-                }
-
-                foreach (var wheel in wheelTransforms) {
-                    wheel.localRotation = Quaternion.Euler(currentWheelRotation, 0f, 0f);
-                }
+            float c = Mathf.PI * 2f * wheelRadius;
+            foreach (var wheel in wheelTransforms) {
+                wheel.localRotation = Quaternion.Euler(-depthObject.position.y * c, 0f, 0f);
             }
 
             if (drillSpeed != 0f) {

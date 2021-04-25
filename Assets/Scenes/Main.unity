@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 755013300818919081, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
+      propertyPath: depthObject
+      value: 
+      objectReference: {fileID: 1043269340}
     - target: {fileID: 755013300818919083, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
       propertyPath: m_Name
       value: Miner
