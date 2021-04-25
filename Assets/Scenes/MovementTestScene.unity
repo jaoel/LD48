@@ -758,6 +758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2117576575}
   - component: {fileID: 2117576576}
+  - component: {fileID: 2117576577}
   m_Layer: 0
   m_Name: Level
   m_TagString: Untagged
@@ -792,6 +793,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18f84eac657170940a99114f4f0fad1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2117576577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117576574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c4a538a3ef1e7249bdade6920fa9785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fuelController: {fileID: 0}
 --- !u!1001 &2125934049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1002,9 +1016,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4594358844581065335, guid: 123bdaed88a81e046b5af08b90a12f04, type: 3}
+      propertyPath: _drill
+      value: 
+      objectReference: {fileID: 2117576577}
+    - target: {fileID: 4594358844581065335, guid: 123bdaed88a81e046b5af08b90a12f04, type: 3}
       propertyPath: _level
       value: 
-      objectReference: {fileID: 2117576574}
+      objectReference: {fileID: 2117576577}
     - target: {fileID: 4594358844581065335, guid: 123bdaed88a81e046b5af08b90a12f04, type: 3}
       propertyPath: _fuelController
       value: 
@@ -1067,9 +1085,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6736110810716709101, guid: 81de813101e204e48941173012dc1f2a, type: 3}
+      propertyPath: _drill
+      value: 
+      objectReference: {fileID: 2117576577}
+    - target: {fileID: 6736110810716709101, guid: 81de813101e204e48941173012dc1f2a, type: 3}
       propertyPath: _level
       value: 
-      objectReference: {fileID: 2117576574}
+      objectReference: {fileID: 2117576577}
     - target: {fileID: 6736110810716709101, guid: 81de813101e204e48941173012dc1f2a, type: 3}
       propertyPath: _fuelController
       value: 

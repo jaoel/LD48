@@ -12,7 +12,7 @@ namespace LD48 {
             base.OnInteract();
 
             if (_fuelController != null) {
-                _fuelController.Refuel(1.0f);
+                _fuelController.UpdateFuel(1.0f);
             }
         }
 

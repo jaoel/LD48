@@ -6,8 +6,10 @@ namespace LD48 {
     public class PlatformMover : Interactable {
 
         [SerializeField]
-        private GameObject _level = null;
+        private Drill _drill = null;
 
+        [SerializeField]
+        private FuelController _fuelController = null;
 
 
         private float _currentSpeed = 0.0f;
@@ -54,9 +56,16 @@ namespace LD48 {
             }
 
             if (_currentSpeed != 0.0f) {
-                Vector3 levelPos = _level.transform.position;
+                Vector3 levelPos = _drill.transform.position;
                 levelPos.y += _currentSpeed * Time.deltaTime;
-                _level.transform.position = levelPos;
+
+                if (_drill != null) {
+                    _drill.MoveDrill(levelPos.y);
+                }
+
+                _fuelController.UpdateFuel(-1.0f);
+
+                //_drill.transform.position = levelPos;
             }
         }
     }
