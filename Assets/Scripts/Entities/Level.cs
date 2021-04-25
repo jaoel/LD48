@@ -18,6 +18,10 @@ namespace LD48 {
             Instance = this;
         }
 
+        public bool CheckIfDigging(float newY) {
+            return newY > _maxDepth;
+        }
+
         public void MoveLevel(float newY) {
             if (newY >= _maxDepth && FuelController.Instance.Fuel <= 0.0f) {
                 return;

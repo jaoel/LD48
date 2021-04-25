@@ -49,7 +49,16 @@ namespace LD48 {
 
             if (_currentSpeed != 0.0f) {
                 Vector3 levelPos = Level.Instance.transform.position;
-                levelPos.y += _currentSpeed * Time.deltaTime;
+
+                float newPos = levelPos.y + _currentSpeed * Time.deltaTime;
+
+                if (Level.Instance.CheckIfDigging(newPos)) {
+                    levelPos.y += _currentSpeed * Time.deltaTime * 0.2f;
+
+
+                } else {
+                    levelPos.y += _currentSpeed * Time.deltaTime;
+                }
 
                 if (Level.Instance != null) {
                     Level.Instance.MoveLevel(levelPos.y);
