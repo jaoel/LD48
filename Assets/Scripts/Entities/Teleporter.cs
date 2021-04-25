@@ -83,6 +83,10 @@ namespace LD48 {
             }
         }
 
+        protected override bool ShouldDisplayInteractMarker() {
+            return CanUse;
+        }
+
         private void LateUpdate() {
             receivedTeleport = false;
         }

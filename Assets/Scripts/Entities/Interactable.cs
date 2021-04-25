@@ -12,6 +12,10 @@ namespace LD48 {
 
         protected Player interactingPlayer = null;
 
+        protected virtual bool ShouldDisplayInteractMarker() {
+            return true;
+        }
+
         [SerializeField]
         private bool _holdToInteract = false;
         protected virtual void OnInteract() {
@@ -30,7 +34,7 @@ namespace LD48 {
                 }
             }
 
-            if (interactMarkerPosition != null && PlayerInReach) {
+            if (interactMarkerPosition != null && PlayerInReach && ShouldDisplayInteractMarker()) {
                 UIManager.Instance.DisplayInteractMarker(interactMarkerPosition);
             }
         }
