@@ -222,7 +222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1395368901040734381, guid: a9a03dee7eee8dc42a670a65873aaa04, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1395368901040734381, guid: a9a03dee7eee8dc42a670a65873aaa04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -266,6 +266,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9a03dee7eee8dc42a670a65873aaa04, type: 3}
+--- !u!114 &558218177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9016600261280586221, guid: 6f4bcb6a7ddcea748af6e6ec219b8ee6, type: 3}
+  m_PrefabInstance: {fileID: 2125934049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceffd01deacbc3644a73349bd5cb293c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &741580562 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1762534826474583567, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
@@ -738,6 +749,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 755013300818919081, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
+      propertyPath: depthObject
+      value: 
+      objectReference: {fileID: 2117576575}
+    - target: {fileID: 755013300818919081, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
+      propertyPath: terrainManager
+      value: 
+      objectReference: {fileID: 558218177}
     - target: {fileID: 755013300818919083, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
       propertyPath: m_Name
       value: Miner
@@ -774,7 +793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117576574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 179895445}
@@ -876,7 +895,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3812618492740560004, guid: e0352d3c90eab944c971cf09bd92c8fd, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3812618492740560004, guid: e0352d3c90eab944c971cf09bd92c8fd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -973,7 +992,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594358844581065225, guid: 123bdaed88a81e046b5af08b90a12f04, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4594358844581065225, guid: 123bdaed88a81e046b5af08b90a12f04, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1038,7 +1057,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6736110810716709100, guid: 81de813101e204e48941173012dc1f2a, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6736110810716709100, guid: 81de813101e204e48941173012dc1f2a, type: 3}
       propertyPath: m_LocalScale.z

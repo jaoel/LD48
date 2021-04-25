@@ -23,7 +23,7 @@ namespace LD48 {
 
             _currentDepth = newY;
             Vector3 pos = transform.position;
-            pos.y = newY;
+            pos.y = Mathf.Max(0, newY);
             transform.position = pos;
 
             _maxDepth = Mathf.Max(newY, _maxDepth);
