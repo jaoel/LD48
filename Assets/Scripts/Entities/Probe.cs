@@ -57,6 +57,10 @@ namespace LD48 {
             }
         }
 
+        public void Upgrade(float newSpeed) {
+            _speed = newSpeed;
+        }
+
         private void OnTriggerEnter(Collider other) {
             Resource resource = other.GetComponentInParent<Resource>();
 
