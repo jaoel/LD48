@@ -141,7 +141,7 @@ namespace LD48 {
             if (segmentAsset.availableResources != null && segmentAsset.availableResources.Count > 0) {
                 for (int i = 0; i < 10; i++) {
                     GameObject go = Instantiate(segmentAsset.availableResources[0].gameObject, parentObject.transform);
-                    go.transform.localPosition = new Vector3(-25, 0 + Random.Range(0.0f, 100.0f), 0);
+                    go.transform.localPosition = new Vector3(-12, 0 + Random.Range(0.0f, 100.0f), 0);
                 }
             }
 
