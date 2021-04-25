@@ -17,3 +17,4 @@ MonoBehaviour:
   color: {r: 0.3882353, g: 0.31764707, b: 0.27058825, a: 0}
   availableResources:
   - {fileID: 3607606784229596465, guid: 6eb9ea1d3932c524a8de0f9dcb85b616, type: 3}
+  - {fileID: 2278367724191284605, guid: 2d80e31a913467d4eb0c86467775ed01, type: 3}

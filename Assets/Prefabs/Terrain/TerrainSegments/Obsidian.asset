@@ -15,3 +15,5 @@ MonoBehaviour:
   tilePrefab: {fileID: 1499767996341756807, guid: e4a3a21b48b0c9940b1bef76a1ed0e58, type: 3}
   shaftPrefab: {fileID: 4501381092424816397, guid: e0c7db8fe5761684ab2e7f970747520e, type: 3}
   color: {r: 0.11320752, g: 0.074626185, b: 0.06781771, a: 0}
+  availableResources:
+  - {fileID: 6202322902352305322, guid: d2ee0df5dc491884ea63ea74438d8c8d, type: 3}

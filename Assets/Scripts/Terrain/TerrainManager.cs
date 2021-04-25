@@ -139,9 +139,17 @@ namespace LD48 {
             parentObject.transform.position = new Vector3(0f, -tileHeight * (depthIndex + 1), 0f);
 
             if (segmentAsset.availableResources != null && segmentAsset.availableResources.Count > 0) {
-                for (int i = 0; i < 10; i++) {
+
+                int orePerSide = Random.Range(5, 20);
+
+                for (int i = 0; i < orePerSide; i++) {
                     GameObject go = Instantiate(segmentAsset.availableResources[0].gameObject, parentObject.transform);
-                    go.transform.localPosition = new Vector3(-12, 0 + Random.Range(0.0f, 100.0f), 0);
+                    go.transform.localPosition = new Vector3(12 + Random.Range(0, 20), 0 + Random.Range(0.0f, 100.0f), 0);
+                }
+
+                for (int i = 0; i < orePerSide; i++) {
+                    GameObject go = Instantiate(segmentAsset.availableResources[0].gameObject, parentObject.transform);
+                    go.transform.localPosition = new Vector3(-12 - Random.Range(0, 20), 0 + Random.Range(0.0f, 100.0f), 0);
                 }
             }
 

@@ -3,36 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace LD48 {
-    public class ProbeStation : Interactable {
-
-        [SerializeField]
-        private Probe _probe = null;
+    public class RefuelingStation : Interactable {
 
         [SerializeField]
         private FuelController _fuelController = null;
 
-        private void Awake() {
-
-        }
-
-        private void Start() {
-
-        }
-
-        protected override void Update() {
-            base.Update();
-        }
-
         protected override void OnInteract() {
             base.OnInteract();
 
-            if (_fuelController.Fuel > 0.0f) {
-                _probe.Fire();
+            if (_fuelController != null) {
+                _fuelController.Refuel(1.0f);
             }
         }
 
         protected override void OnRelease() {
             base.OnRelease();
+        }
+
+        protected override void Update() {
+            base.Update();
         }
     }
 }
