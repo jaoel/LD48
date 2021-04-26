@@ -103,7 +103,6 @@ namespace LD48 {
                     levelPos.y += _currentSpeed * Time.deltaTime * 0.2f;
 
                     if (_infinteShake == null && Interacting && isDigging) {
-                        Debug.LogError("Creating shake");
                         _infinteShake = Camera.main.transform.parent.parent.DOShakePosition(9000, 0.1f, 2, 90).SetLoops(-1);
                     }
                 } else {

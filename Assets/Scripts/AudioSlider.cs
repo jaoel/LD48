@@ -31,7 +31,6 @@ namespace LD48 {
 
         public void SetVolume(float volume) {
             float mappedVolume = Mathf.Log10(volume) * 20f;
-            Debug.Log($"Setting volume {mappedVolume}");
             audioMixer.SetFloat(parameterName, Mathf.Clamp(mappedVolume, -80f, 0f));
             PlayerPrefs.SetFloat(PrefsKey, volume);
         }
