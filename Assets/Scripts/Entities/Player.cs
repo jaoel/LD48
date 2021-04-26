@@ -22,7 +22,7 @@ namespace LD48 {
 
         private float animationSpeed = 1f;
 
-        public int Resources { get; set; };
+        public int Resources { get; set; }
         public int MaxResources { get; set; } = 1000;
 
         private void Awake() {
@@ -45,7 +45,6 @@ namespace LD48 {
         }
 
         private void Update() {
-            Resources = 1000000;
             if (_characterController != null) {
 
                 Vector3 forward = Vector3.zero;
