@@ -892,8 +892,32 @@ PrefabInstance:
       value: FuelUpgrader
       objectReference: {fileID: 0}
     - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
       propertyPath: _upgrades.Array.data[0].Cost
-      value: 0
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.data[1].Cost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.data[2].Cost
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.data[0].MaxFuel
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.data[1].MaxFuel
+      value: 175
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.data[2].MaxFuel
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 9161512123345388779, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
       propertyPath: m_RootOrder
@@ -2036,6 +2060,34 @@ PrefabInstance:
     - target: {fileID: 7102198252542818748, guid: 863738ee259569d49a62320911e25247, type: 3}
       propertyPath: m_Name
       value: ProbeUpgrader
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582022633132721645, guid: 863738ee259569d49a62320911e25247, type: 3}
+      propertyPath: _upgrades.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582022633132721645, guid: 863738ee259569d49a62320911e25247, type: 3}
+      propertyPath: _upgrades.Array.data[0].Cost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582022633132721645, guid: 863738ee259569d49a62320911e25247, type: 3}
+      propertyPath: _upgrades.Array.data[1].Cost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582022633132721645, guid: 863738ee259569d49a62320911e25247, type: 3}
+      propertyPath: _upgrades.Array.data[2].Cost
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582022633132721645, guid: 863738ee259569d49a62320911e25247, type: 3}
+      propertyPath: _upgrades.Array.data[0].Speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582022633132721645, guid: 863738ee259569d49a62320911e25247, type: 3}
+      propertyPath: _upgrades.Array.data[1].Speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582022633132721645, guid: 863738ee259569d49a62320911e25247, type: 3}
+      propertyPath: _upgrades.Array.data[2].Speed
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 863738ee259569d49a62320911e25247, type: 3}
