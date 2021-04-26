@@ -5,7 +5,7 @@ using UnityEngine;
 namespace LD48 {
     public class Probe : MonoBehaviour {
 
-        enum State {
+        public enum State {
             Idle,
             Moving
         }
@@ -19,6 +19,8 @@ namespace LD48 {
         private float _timeElapsed = 0.0f;
 
         private State _state = State.Idle;
+
+        public State CurrentState { get => _state; }
 
         private void Awake() {
             _origin = transform.position;
@@ -51,6 +53,7 @@ namespace LD48 {
 
         public void Fire() {
             if (_state == State.Idle) {
+                FuelController.Instance.UpdateFuel(-20.0f);
                 _direction = transform.forward;
                 _state = State.Moving;
                 _timeElapsed = 0.0f;

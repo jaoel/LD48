@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace LD48 {
@@ -20,11 +21,21 @@ namespace LD48 {
         [SerializeField]
         private MinerVessel _miner = null;
 
+        private List<Probe> _probes = new List<Probe>();
+
         private void Awake() {
-            
+            GameObject[] probes = GameObject.FindGameObjectsWithTag("Probe");
+            foreach(GameObject go in probes) {
+                _probes.Add(go.GetComponent<Probe>());
+            }
         }
 
         protected override void OnInteract() {
+
+            if (_probes.Any(x => x.CurrentState == Probe.State.Moving)){
+                return;
+            }
+
             base.OnInteract();
         }
 
