@@ -23,6 +23,10 @@ namespace LD48 {
 
         private List<Probe> _probes = new List<Probe>();
 
+        private bool _hasSeenTutorial = false;
+        [SerializeField]
+        private Transform _toolTipPos = null;
+
         private void Awake() {                                                                                                                                                          
             GameObject[] probes = GameObject.FindGameObjectsWithTag("Probe");
             foreach(GameObject go in probes) {
@@ -41,10 +45,21 @@ namespace LD48 {
 
         protected override void OnRelease() {
             base.OnRelease();
+
+            _hasSeenTutorial = true;
         }
 
         protected override void Update() {
             base.Update();
+
+            if (PlayerInReach && !_hasSeenTutorial) {
+                if (_maxSpeed > 0) {
+                    UIManager.Instance.DisplayTextPanel(_toolTipPos, "Hold [space] to move down");
+                }
+                else {
+                    UIManager.Instance.DisplayTextPanel(_toolTipPos, "Hold [space] to move up");
+                }
+            }
 
             if (Interacting) {
                 if (_acc < 0) {

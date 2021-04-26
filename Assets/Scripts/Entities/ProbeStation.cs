@@ -14,6 +14,10 @@ namespace LD48 {
         [SerializeField]
         private Probe _probe = null;
 
+        public  bool _hasSeenTutorial = false;
+        [SerializeField]
+        private Transform _toolTipPos = null;
+
         protected override void Update() {
             base.Update();
 
@@ -25,6 +29,10 @@ namespace LD48 {
                 leverCurrentAngle = Mathf.MoveTowards(leverCurrentAngle, leverOnAngle, Time.deltaTime * (20f + (1f - dist) * 1000f));
             }
             leverArm.localRotation = Quaternion.Euler(leverCurrentAngle, 0f, 0f);
+
+            if (PlayerInReach && !_hasSeenTutorial) {
+                UIManager.Instance.DisplayTextPanel(_toolTipPos, "Press [space] to fire mining probe");
+            }
         }
 
         protected override void OnInteract() {
@@ -33,6 +41,8 @@ namespace LD48 {
             if (FuelController.Instance.Fuel > 0.0f) {
                 _probe.Fire();
             }
+
+            _hasSeenTutorial = true;
         }
 
         protected override void OnRelease() {

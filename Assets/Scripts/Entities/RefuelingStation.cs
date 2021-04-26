@@ -5,6 +5,9 @@ using UnityEngine;
 namespace LD48 {
     public class RefuelingStation : Interactable {
 
+        [SerializeField]
+        private Transform _toolTipPos = null;
+
         protected override void OnInteract() {
             base.OnInteract();
 
@@ -17,6 +20,10 @@ namespace LD48 {
 
         protected override void Update() {
             base.Update();
+
+            if (PlayerInReach) {
+                UIManager.Instance.DisplayTextPanel(_toolTipPos, "Hold [space] to refuel");
+            }
         }
     }
 }

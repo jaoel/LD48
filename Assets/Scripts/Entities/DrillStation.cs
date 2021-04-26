@@ -17,10 +17,14 @@ namespace LD48 {
 
         private float _maxSpeed = 360.0f;
 
+        private bool _hasSeenTutorial = false;
+        [SerializeField]
+        private Transform _toolTipPos = null;
+
         protected override void OnInteract() {
             base.OnInteract();
-
             _active = !_active;
+            _hasSeenTutorial = true;
         }
 
         protected override void OnRelease() {
@@ -29,6 +33,10 @@ namespace LD48 {
 
         protected override void Update() {
             base.Update();
+
+            if (PlayerInReach && !_hasSeenTutorial) {
+                UIManager.Instance.DisplayTextPanel(_toolTipPos, "Press [space] to toggle drill");
+            }
 
             if (FuelController.Instance.Fuel <= 0.0f) {
                 _active = false;
