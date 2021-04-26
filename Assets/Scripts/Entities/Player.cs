@@ -15,6 +15,7 @@ namespace LD48 {
         private float _maxSpeed = 10.0f;
         public float _speed = 7.0f;
         private float _acceleration = 0.0f;
+        public bool hasDiamond = false;
 
         public int Resources { get; set; }
         public int MaxResources { get; set; } = 1000;
