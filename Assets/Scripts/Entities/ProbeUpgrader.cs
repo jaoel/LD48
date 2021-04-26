@@ -52,7 +52,7 @@ namespace LD48 {
                     UIManager.Instance.DisplayTextPanel(_toolTipPos, "Probes fully upgraded");
                 } else {
                     UIManager.Instance.DisplayTextPanel(_toolTipPos,
-                      $"Range +{_upgrades[_currentUpgrade + 1].Speed - FuelController.Instance._maxFuel}\nCost {_upgrades[_currentUpgrade + 1].Cost}");
+                      $"Probe range +{_upgrades[_currentUpgrade + 1].Speed * 2.0f}\nCost {_upgrades[_currentUpgrade + 1].Cost}");
                 }
             }
         }

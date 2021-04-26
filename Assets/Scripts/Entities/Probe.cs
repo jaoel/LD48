@@ -59,7 +59,7 @@ namespace LD48 {
         }
 
         public void Upgrade(float newSpeed) {
-            _speed = newSpeed;
+            _speed += newSpeed;
         }
 
         public void OnPickedUpResource(Resource resource) {
