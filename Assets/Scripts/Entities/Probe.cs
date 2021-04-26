@@ -10,51 +10,49 @@ namespace LD48 {
             Moving
         }
 
+        public Transform probeHead;
+        public Transform probeHeadVisual;
+        public Transform probeArm;
+
         private float _time = 2.0f;
         private float _speed = 10.0f;
-        private Vector3 _direction = Vector3.zero;
+        private float _direction = 1f;
 
-        private Vector3 _origin = Vector3.zero;
-        private Vector3 _startPosition = Vector3.zero;
         private float _timeElapsed = 0.0f;
 
         private State _state = State.Idle;
 
         public State CurrentState { get => _state; }
 
-        private void Awake() {
-            _origin = transform.position;
-        }
-
-        private void Start() {
-
-        }
-
         private void Update() {
 
             if (_state == State.Moving) {
                 if (_timeElapsed <= _time) {
-                    transform.position += _direction * _speed * Time.deltaTime;
-                    _timeElapsed += Time.deltaTime;
+                    Vector3 pos = probeHead.localPosition;
+                    pos.z += _direction * _speed * Time.deltaTime;
 
-                    if (_direction == -transform.forward && Vector3.Distance(transform.position, _origin) < 0.1f) {
-                        transform.position = _origin;
+                    if (_direction < 0f && pos.z < 0.1f) {
+                        pos.z = 0f;
                         _timeElapsed = 0.0f;
                         _state = State.Idle;
                     }
+
+                    probeHead.localPosition = pos;
+                    _timeElapsed += Time.deltaTime;
                 } else {
                     _timeElapsed = 0.0f;
-                    _direction = -transform.forward;
+                    _direction = -1f;
                 }
 
-
+                probeArm.localScale = new Vector3(1f, 1f, probeHead.localPosition.z);
+                probeHeadVisual.localRotation = Quaternion.Euler(0f, 0f, -Time.time * 720f);
             }
         }
 
         public void Fire() {
             if (_state == State.Idle) {
                 FuelController.Instance.UpdateFuel(-20.0f);
-                _direction = transform.forward;
+                _direction = 1f;
                 _state = State.Moving;
                 _timeElapsed = 0.0f;
             }
@@ -64,14 +62,12 @@ namespace LD48 {
             _speed = newSpeed;
         }
 
-        private void OnTriggerEnter(Collider other) {
-            Resource resource = other.GetComponentInParent<Resource>();
-
+        public void OnPickedUpResource(Resource resource) {
             Player.Instance.Resources += resource.Value;
 
             Destroy(resource.gameObject);
 
-            _direction = -transform.forward;
+            _direction = -1f;
             _timeElapsed = 0.0f;
         }
     }
