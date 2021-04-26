@@ -27,15 +27,21 @@ namespace LD48 {
         private float positionSmoothDampVelF;
         private float zoomSmoothDampVelF;
 
+        public List<Transform> probes = new List<Transform>();
+
         private void Awake() {
             targetPos = _playerTransform.position;
         }
 
-        private void Start() {
-
-        }
-
         private void Update() {
+            Vector3 cameraCenter = Vector3.zero;
+            foreach(Transform probe in probes) {
+                cameraCenter += probe.position;
+            }
+
+            cameraCenter /= probes.Count;
+            cameraCenter.y = 0f;
+
             Vector3 toPlatform = _playerTransform.position - _platformCenter;
             float horizontalDistance = new Vector2(toPlatform.x, toPlatform.z).magnitude;
 
@@ -47,7 +53,7 @@ namespace LD48 {
             }
 
             if (horizontalDistance < 10f) {
-                Vector3 newTarget = _platformCenter;
+                Vector3 newTarget = cameraCenter;
                 newTarget.y = _playerTransform.position.y;
                 newTarget = Vector3.Lerp(_playerTransform.position, newTarget, 0.85f);
                 targetPos = Vector3.SmoothDamp(targetPos, newTarget, ref smoothDampVelV3, 1f, 10f, Time.deltaTime);

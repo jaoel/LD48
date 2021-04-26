@@ -154,6 +154,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &281965786 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6146823189556639735, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
+  m_PrefabInstance: {fileID: 616206325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &383548580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5877212709472284226, guid: 4eeb29e5980ae9d4986e3531373959c9, type: 3}
+  m_PrefabInstance: {fileID: 616206325}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &401059283
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +577,9 @@ MonoBehaviour:
   zoomLevel: 0.8
   camera: {fileID: 1743401985}
   depthObject: {fileID: 1043269340}
+  probes:
+  - {fileID: 281965786}
+  - {fileID: 383548580}
 --- !u!4 &1043269340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2614872500712677567, guid: 82478f759ca92ec4388ed6e0c5503e4f, type: 3}
