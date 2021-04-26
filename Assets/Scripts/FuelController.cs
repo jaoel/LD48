@@ -6,7 +6,7 @@ namespace LD48 {
 
         public FuelTank tank = null;
 
-        private float _maxFuel = 100.0f;
+        public float _maxFuel = 100.0f;
         public float Fuel { get; private set; } = 0;
 
         private void Awake() {
@@ -42,6 +42,7 @@ namespace LD48 {
 
         public void UpdateMax(float newMax) {
             _maxFuel = newMax;
+            UpdateFuelUIText();
         }
 
     }

@@ -18,6 +18,8 @@ namespace LD48 {
 
         int _currentUpgrade = -1;
 
+        [SerializeField]
+        private Transform _toolTipPos = null;
 
         protected override void OnInteract() {
             base.OnInteract();
@@ -44,6 +46,15 @@ namespace LD48 {
         }
         protected override void Update() {
             base.Update();
+
+            if (PlayerInReach) {
+                if (_currentUpgrade + 1 > _upgrades.Count) {
+                    UIManager.Instance.DisplayTextPanel(_toolTipPos, "Probes fully upgraded");
+                } else {
+                    UIManager.Instance.DisplayTextPanel(_toolTipPos,
+                      $"Range +{_upgrades[_currentUpgrade + 1].Speed - FuelController.Instance._maxFuel}\nCost {_upgrades[_currentUpgrade + 1].Cost}");
+                }
+            }
         }
     }
 }

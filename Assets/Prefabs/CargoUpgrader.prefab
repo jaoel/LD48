@@ -33,6 +33,7 @@ Transform:
   - {fileID: 8338544857957816281}
   - {fileID: 867781943585991290}
   - {fileID: 4104147293755225941}
+  - {fileID: 7120889115848025992}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -77,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1077ea628fcbb4d4b92ea2019c311327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactMarkerPosition: {fileID: 0}
+  interactMarkerPosition: {fileID: 7120889115848025992}
   _holdToInteract: 0
   _upgrades:
   - Cost: 1000
@@ -86,6 +87,37 @@ MonoBehaviour:
     MaxCargo: 2500
   - Cost: 2500
     MaxCargo: 5000
+  _toolTipPos: {fileID: 0}
+--- !u!1 &2549968258910815802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7120889115848025992}
+  m_Layer: 0
+  m_Name: ToolTipPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7120889115848025992
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549968258910815802}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3820118126350628729}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5931220234475578086
 GameObject:
   m_ObjectHideFlags: 0

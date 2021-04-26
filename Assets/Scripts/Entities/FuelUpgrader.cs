@@ -17,6 +17,8 @@ namespace LD48 {
 
         private int _currentLevel = -1;
 
+        [SerializeField]
+        private Transform _toolTipPos = null;
         protected override void OnInteract() {
             base.OnInteract();
 
@@ -39,6 +41,16 @@ namespace LD48 {
         }
         protected override void Update() {
             base.Update();
+
+            if (PlayerInReach) {
+
+                if (_currentLevel + 1 > _upgrades.Count) {
+                    UIManager.Instance.DisplayTextPanel(_toolTipPos, "Fuel fully upgraded");
+                } else {
+                    UIManager.Instance.DisplayTextPanel(_toolTipPos,
+                      $"Max fuel +{_upgrades[_currentLevel + 1].MaxFuel - FuelController.Instance._maxFuel}\nCost {_upgrades[_currentLevel + 1].Cost}");
+                }
+            }
         }
     }
 }

@@ -144,12 +144,12 @@ namespace LD48 {
 
                 for (int i = 0; i < orePerSide; i++) {
                     GameObject go = Instantiate(segmentAsset.availableResources[0].gameObject, parentObject.transform);
-                    go.transform.localPosition = new Vector3(12 + Random.Range(0, 20), 0 + Random.Range(0.0f, 100.0f), 0);
+                    go.transform.localPosition = new Vector3(12 + Random.Range(0, 20), 0 + Random.Range(0.0f, 100.0f), 1.5f);
                 }
 
                 for (int i = 0; i < orePerSide; i++) {
                     GameObject go = Instantiate(segmentAsset.availableResources[0].gameObject, parentObject.transform);
-                    go.transform.localPosition = new Vector3(-12 - Random.Range(0, 20), 0 + Random.Range(0.0f, 100.0f), 0);
+                    go.transform.localPosition = new Vector3(-12 - Random.Range(0, 20), 0 + Random.Range(0.0f, 100.0f), 1.5f);
                 }
             }
 

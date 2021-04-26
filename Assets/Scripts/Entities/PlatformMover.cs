@@ -85,7 +85,7 @@ namespace LD48 {
 
                 if (Level.Instance != null && FuelController.Instance.Fuel > 0.0f) {
                     if (Level.Instance.MoveLevel(levelPos.y)) {
-                        FuelController.Instance.UpdateFuel(-1.0f);
+                        FuelController.Instance.UpdateFuel(-0.25f);
                     }
                 }
             }

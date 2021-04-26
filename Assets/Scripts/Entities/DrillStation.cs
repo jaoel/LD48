@@ -39,7 +39,7 @@ namespace LD48 {
                     _miner.drillSpeed = Mathf.SmoothDamp(_miner.drillSpeed, _maxSpeed, ref _drillVelocity, 1.0f);
                 }
 
-                FuelController.Instance.UpdateFuel(-1.0f);
+                FuelController.Instance.UpdateFuel(-3.0f);
             }
             else {
                 if(_miner.drillSpeed > 0) {
