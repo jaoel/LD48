@@ -72,7 +72,7 @@ namespace LD48 {
                     levelPos.y += _currentSpeed * Time.deltaTime;
                 }
 
-                if (Level.Instance != null) {
+                if (Level.Instance != null && FuelController.Instance.Fuel > 0.0f) {
                     if (Level.Instance.MoveLevel(levelPos.y)) {
                         FuelController.Instance.UpdateFuel(-1.0f);
                     }
