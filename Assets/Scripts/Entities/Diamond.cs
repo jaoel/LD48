@@ -22,6 +22,9 @@ namespace LD48 {
         }
 
         protected override void OnInteract() {
+            if (!Player.Instance.hasDiamond) {
+                Player.Instance.PlayPop();
+            }
             Player.Instance.hasDiamond = true;
             updated?.Invoke();
         }
