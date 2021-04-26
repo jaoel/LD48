@@ -12,6 +12,7 @@ namespace LD48 {
         public Transform tutorialPos = null;
         public ParticleSystem useParticleSystem = null;
         public ParticleSystem activeParticleSystem = null;
+        public AudioSource audioSource = null;
 
         public bool CanUse => targetTeleporter != null && targetTeleporter.targetTeleporter == this;
 
@@ -47,6 +48,7 @@ namespace LD48 {
                 targetTeleporter.useParticleSystem.Play();
                 targetTeleporter.receivedTeleport = true;
                 HandleExit(player);
+                audioSource.Play();
             }
         }
 
