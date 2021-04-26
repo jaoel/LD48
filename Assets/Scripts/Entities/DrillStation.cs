@@ -25,6 +25,16 @@ namespace LD48 {
         private Tweener _cameraShake = null;
         private Tweener _infinteShake = null;
 
+        public AudioSource audioSource;
+        public AudioClip onClip;
+        public AudioClip offClip;
+
+        private bool lastActive = false;
+
+        private void Awake() {
+            lastActive = _active;
+        }
+
         protected override void OnInteract() {
             base.OnInteract();
             _active = !_active;
@@ -79,6 +89,17 @@ namespace LD48 {
                 rot.x = Mathf.MoveTowards(rot.x, switchOffRot, Time.time * 10f);
             }
             switchTransform.localEulerAngles = rot;
+
+            if (lastActive != _active) {
+                if (_active) {
+                    audioSource.clip = onClip;
+                } else {
+                    audioSource.clip = offClip;
+                }
+                audioSource.Play();
+            }
+
+            lastActive = _active;
         }
     }
 }
