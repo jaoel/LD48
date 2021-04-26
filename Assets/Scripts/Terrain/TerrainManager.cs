@@ -49,15 +49,6 @@ namespace LD48 {
         }
 
         private void Update() {
-            if (debugControls) {
-                if (Input.GetKey(KeyCode.UpArrow)) {
-                    depthObject.transform.position -= Vector3.up * 50f * Time.deltaTime;
-                }
-
-                if (Input.GetKey(KeyCode.DownArrow)) {
-                    depthObject.transform.position += Vector3.up * 50f * Time.deltaTime;
-                }
-            }
 
             currentDepth = depthObject.position.y;
             dugDepth = Mathf.Max(currentDepth, dugDepth);

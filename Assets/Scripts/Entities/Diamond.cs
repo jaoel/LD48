@@ -1,13 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 namespace LD48 {
     public class Diamond : Interactable {
         public bool isInMiner = true;
 
         public static UnityEvent updated = new UnityEvent();
-
         protected override bool ShouldDisplayInteractMarker() {
             return isInMiner == false;
         }
@@ -27,6 +27,8 @@ namespace LD48 {
             }
             Player.Instance.hasDiamond = true;
             updated?.Invoke();
+
+            Player.Instance.ShowDiamondTooltip();
         }
 
         private void UpdateDiamondVisibility() {
