@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace LD48 {
     public class DrillStation : Interactable {
+        private const float switchOnRot = 35f;
+        private const float switchOffRot = 65f;
+
+        public Transform switchTransform;
 
         [SerializeField]
         private MinerVessel _miner = null;
@@ -43,6 +47,13 @@ namespace LD48 {
                 }
             }
 
+            Vector3 rot = switchTransform.localEulerAngles;
+            if (_active) {
+                rot.x = Mathf.MoveTowards(rot.x, switchOnRot, Time.time * 10f);
+            } else {
+                rot.x = Mathf.MoveTowards(rot.x, switchOffRot, Time.time * 10f);
+            }
+            switchTransform.localEulerAngles = rot;
         }
     }
 }
