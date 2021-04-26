@@ -57,8 +57,16 @@ MonoBehaviour:
   - segment: {fileID: 11400000, guid: 903ddc15bb324784e8213f3f6e2f9b1c, type: 2}
     repeatCountMin: 5
     repeatCountMax: 5
+  - segment: {fileID: 11400000, guid: a962e2e18c2a4c247848d35ba604df09, type: 2}
+    repeatCountMin: 1
+    repeatCountMax: 1
+  - segment: {fileID: 11400000, guid: 966b3db455051514c82124984b737730, type: 2}
+    repeatCountMin: 5
+    repeatCountMax: 5
   startColor: {r: 0.3647059, g: 0.4862745, b: 0, a: 1}
   drillSegment: {fileID: 5934559091739139059}
+  depthObject: {fileID: 0}
+  debugControls: 1
 --- !u!1001 &9016600259935155008
 PrefabInstance:
   m_ObjectHideFlags: 0

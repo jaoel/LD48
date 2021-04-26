@@ -41,7 +41,7 @@ namespace LD48 {
         }
 
         private void Start() {
-            GenerateSegments(10);
+            GenerateSegments(100);
         }
 
         private void Update() {

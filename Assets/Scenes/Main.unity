@@ -570,10 +570,6 @@ PrefabInstance:
       propertyPath: depthObject
       value: 
       objectReference: {fileID: 1043269340}
-    - target: {fileID: 9016600261280586221, guid: 6f4bcb6a7ddcea748af6e6ec219b8ee6, type: 3}
-      propertyPath: debugControls
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f4bcb6a7ddcea748af6e6ec219b8ee6, type: 3}
 --- !u!1 &1743401983
