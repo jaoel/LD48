@@ -35,6 +35,14 @@ namespace LD48 {
         private void Update() {
             Vector3 toPlatform = _playerTransform.position - _platformCenter;
             float horizontalDistance = new Vector2(toPlatform.x, toPlatform.z).magnitude;
+
+            if (horizontalDistance < 10f) {
+                MusicManager.Instance.QueueClip(MusicManager.Instance.musicClip);
+            } else {
+
+                MusicManager.Instance.QueueClip(MusicManager.Instance.ambientClip);
+            }
+
             if (horizontalDistance < 10f) {
                 Vector3 newTarget = _platformCenter;
                 newTarget.y = _playerTransform.position.y;
