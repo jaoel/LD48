@@ -15,6 +15,7 @@ namespace LD48 {
         private bool _destroyedResources = false;
 
         public bool tooHot = false;
+        private bool hasOpenedWinScreen = false;
 
         private void Awake() {
             if (Instance != null) {
@@ -55,6 +56,11 @@ namespace LD48 {
             _maxDepth = Mathf.Max(newY, _maxDepth);
 
             if (pos.y == 0) {
+                if (!hasOpenedWinScreen && Player.Instance.hasDiamond) {
+                    hasOpenedWinScreen = true;
+                    UIManager.Instance.winScreen.SetActive(true);
+                    Time.timeScale = 0f;
+                }
                 return false;
             }
 

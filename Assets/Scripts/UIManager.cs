@@ -19,6 +19,7 @@ namespace LD48 {
         public RectTransform canvasRect = null;
         public RectTransform worldCanvasWrapper = null;
         public GameObject pauseMenu = null;
+        public GameObject winScreen = null;
 
         public RectTransform interactMarker = null;
 
@@ -40,6 +41,7 @@ namespace LD48 {
                 audioSlider.Init();
             }
             pauseMenu.SetActive(false);
+            winScreen.SetActive(false);
         }
 
         private void Update() {
@@ -65,6 +67,7 @@ namespace LD48 {
                 } else {
                     Time.timeScale = 1f;
                     pauseMenu.SetActive(false);
+                    winScreen.SetActive(false);
                 }
             }
 
