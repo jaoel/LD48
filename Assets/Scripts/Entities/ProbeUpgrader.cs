@@ -12,7 +12,7 @@ namespace LD48 {
     }
 
     public class ProbeUpgrader : Interactable {
-        
+
         [SerializeField]
         List<ProbeUpgrade> _upgrades = new List<ProbeUpgrade>();
 
@@ -31,7 +31,7 @@ namespace LD48 {
             if (Player.Instance.Resources >= _upgrades[nextLevel].Cost) {
                 GameObject[] probes = GameObject.FindGameObjectsWithTag("Probe");
 
-                foreach(GameObject go in probes) {
+                foreach (GameObject go in probes) {
                     go.GetComponent<Probe>().Upgrade(_upgrades[nextLevel].Speed);
                 }
 
