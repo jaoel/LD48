@@ -67,9 +67,23 @@ namespace LD48 {
             return true;
         }
 
+        private float outOfFuelTime = 0f;
+        private string outOfFuelText = null;
+
         public void Update() {
             if (FuelController.Instance.Fuel <= 0.0f && _currentDepth > 0.0f && !_probes.Any(x => x.CurrentState == Probe.State.Moving)) {
                 MoveLevel(transform.position.y - 20.0f * Time.deltaTime);
+
+                if (outOfFuelTime < 0f) {
+                    outOfFuelTime = Time.time + 5f;
+                    if (Player.Instance.hasDiamond) {
+                        outOfFuelText = "Your cargo is too heavy\nYou'll have to leave\nthat thing behind!";
+                        Player.Instance.hasDiamond = false;
+                        Diamond.updated?.Invoke();
+                    } else {
+                        outOfFuelText = "Uncle Bob's express towing\nto the rescue!\nFor a price...";
+                    }
+                }
 
                 if (!_destroyedResources) {
                     Player.Instance.Resources = Mathf.CeilToInt((float)Player.Instance.Resources * 0.5f);
@@ -77,7 +91,13 @@ namespace LD48 {
                 }
             }
             else {
+                outOfFuelTime = -1f;
+                outOfFuelText = null;
                 _destroyedResources = false;
+            }
+
+            if (outOfFuelText != null) {
+                UIManager.Instance.DisplayTextPanel(Player.Instance.transform, outOfFuelText);
             }
         }
     }

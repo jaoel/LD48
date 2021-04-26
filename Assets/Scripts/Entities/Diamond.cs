@@ -6,7 +6,7 @@ namespace LD48 {
     public class Diamond : Interactable {
         public bool isInMiner = true;
 
-        private static UnityEvent pickedUp = new UnityEvent();
+        public static UnityEvent updated = new UnityEvent();
 
         protected override bool ShouldDisplayInteractMarker() {
             return isInMiner == false;
@@ -14,16 +14,16 @@ namespace LD48 {
 
         private void Start() {
             UpdateDiamondVisibility();
-            pickedUp.AddListener(UpdateDiamondVisibility);
+            updated.AddListener(UpdateDiamondVisibility);
         }
 
         private void OnDestroy() {
-            pickedUp.RemoveListener(UpdateDiamondVisibility);
+            updated.RemoveListener(UpdateDiamondVisibility);
         }
 
         protected override void OnInteract() {
             Player.Instance.hasDiamond = true;
-            pickedUp?.Invoke();
+            updated?.Invoke();
         }
 
         private void UpdateDiamondVisibility() {
