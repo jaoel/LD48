@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace LD48 {
     public class TerrainManager : MonoBehaviour {
+        public static TerrainManager Instance { get; private set; } = null;
+
         [System.Serializable]
         public class SegmentDefinition {
             public TerrainSegmentAsset segment = null;
@@ -16,6 +18,7 @@ namespace LD48 {
             public ShaftSegment shaftSegment = null;
             public Color startColor;
             public Color endColor;
+            public bool unminable = false;
         }
 
         private const float tileHeight = 100f;
@@ -35,6 +38,7 @@ namespace LD48 {
         private List<Segment> segments = new List<Segment>();
 
         private void Awake() {
+            Instance = this;
             if (mpb == null) {
                 mpb = new MaterialPropertyBlock();
             }
@@ -175,6 +179,7 @@ namespace LD48 {
             segment.shaftSegment = shaftSegment;
             segment.startColor = previousColor;
             segment.endColor = segmentAsset.color;
+            segment.unminable = segmentAsset.unminable;
             return segment;
         }
     }

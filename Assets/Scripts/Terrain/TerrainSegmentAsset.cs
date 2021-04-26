@@ -8,5 +8,6 @@ namespace LD48 {
         public ShaftSegment shaftPrefab = null;
         public Color color;
         public List<Resource> availableResources = null;
+        public bool unminable = false;
     }
 }

@@ -283,6 +283,7 @@ Transform:
   - {fileID: 1716974921458080562}
   - {fileID: 1373036404047266439}
   - {fileID: 5341877671667788853}
+  - {fileID: 8687070726120831643}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -315,6 +316,7 @@ MonoBehaviour:
   terrainManager: {fileID: 0}
   teleporter: {fileID: 7620147336468484081}
   surfaceTeleporter: {fileID: 0}
+  tooHotPosition: {fileID: 8687070726120831643}
 --- !u!1 &755013301201528165
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1073,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7544604098763261776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8687070726120831643}
+  m_Layer: 0
+  m_Name: TooHot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8687070726120831643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7544604098763261776}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.65, y: -4.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 755013300818919080}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7594167471137700961
 GameObject:
   m_ObjectHideFlags: 0
@@ -1567,11 +1599,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bcf2d0f8e20c1047bd8d62d487c800e, type: 3}
---- !u!4 &1373036404047266439 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6579435199857550757, guid: 9bcf2d0f8e20c1047bd8d62d487c800e, type: 3}
-  m_PrefabInstance: {fileID: 5206398808721663778}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3576007666431747961 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8782107403675222107, guid: 9bcf2d0f8e20c1047bd8d62d487c800e, type: 3}
@@ -1583,6 +1610,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68134c125064ae745a39660f7a782523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1373036404047266439 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6579435199857550757, guid: 9bcf2d0f8e20c1047bd8d62d487c800e, type: 3}
+  m_PrefabInstance: {fileID: 5206398808721663778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5388046110379929449
 PrefabInstance:
   m_ObjectHideFlags: 0

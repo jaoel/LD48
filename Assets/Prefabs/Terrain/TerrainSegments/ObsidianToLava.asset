@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1482d54ce369cfd47917c4cad15dc0e9, type: 3}
-  m_Name: Lava
+  m_Name: ObsidianToLava
   m_EditorClassIdentifier: 
   tilePrefab: {fileID: 1499767996341756807, guid: e4a3a21b48b0c9940b1bef76a1ed0e58, type: 3}
   shaftPrefab: {fileID: 4501381092424816397, guid: e0c7db8fe5761684ab2e7f970747520e, type: 3}
   color: {r: 0.8679245, g: 0.4031936, b: 0.036845837, a: 0}
   availableResources: []
-  unminable: 1
+  unminable: 0

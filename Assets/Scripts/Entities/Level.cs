@@ -14,6 +14,8 @@ namespace LD48 {
 
         private bool _destroyedResources = false;
 
+        public bool tooHot = false;
+
         private void Awake() {
             if (Instance != null) {
                 Debug.LogError("Level already exists");
@@ -33,8 +35,16 @@ namespace LD48 {
         }
 
         public bool MoveLevel(float newY) {
+            tooHot = false;
             if (newY >= _maxDepth && FuelController.Instance.Fuel <= 0.0f) {
                 return false;
+            }
+
+            if (newY >= _maxDepth && TerrainManager.Instance.TryGetCurrentSegment(out var currentSegment)) {
+                if (currentSegment.unminable) {
+                    tooHot = true;
+                    return false;
+                }
             }
 
             _currentDepth = newY;

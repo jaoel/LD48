@@ -13,6 +13,7 @@ namespace LD48 {
         public TerrainManager terrainManager = null;
         public Teleporter teleporter = null;
         public Teleporter surfaceTeleporter = null;
+        public Transform tooHotPosition;
 
         private float currentDrillRotation = 0f;
 
@@ -52,6 +53,10 @@ namespace LD48 {
                 if (teleporter.targetTeleporter != null) {
                     teleporter.SetTargetTeleporter(null);
                 }
+            }
+
+            if (Level.Instance.tooHot) {
+                UIManager.Instance.DisplayTextPanel(tooHotPosition, "It's too hot!");
             }
         }
     }
