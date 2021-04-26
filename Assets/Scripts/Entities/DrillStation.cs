@@ -26,6 +26,10 @@ namespace LD48 {
         protected override void Update() {
             base.Update();
 
+            if (FuelController.Instance.Fuel <= 0.0f) {
+                _active = false;
+            }
+
             if (_active) {
                 if (_miner.drillSpeed < _maxSpeed) {
                     _miner.drillSpeed = Mathf.SmoothDamp(_miner.drillSpeed, _maxSpeed, ref _drillVelocity, 1.0f);
