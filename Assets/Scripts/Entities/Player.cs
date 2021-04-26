@@ -17,6 +17,7 @@ namespace LD48 {
         private float _acceleration = 0.0f;
 
         public int Resources { get; set; }
+        public int MaxResources { get; set; } = 1000;
 
         private void Awake() {
             if (Instance != null) {
@@ -31,6 +32,10 @@ namespace LD48 {
             _characterController.enabled = false;
             transform.position = position;
             _characterController.enabled = true;
+        }
+
+        public void AddResource(int resource) {
+            Resources = Mathf.Min(Resources + resource, MaxResources);
         }
 
         private void Update() {
@@ -69,7 +74,7 @@ namespace LD48 {
                 animator.SetFloat("RunSpeed", forward.magnitude);
             }
 
-            UIManager.Instance.resourcesText.SetText(Resources.ToString());
+            UIManager.Instance.resourcesText.SetText(Resources.ToString() + "/" + MaxResources.ToString());
         }
     }
 }

@@ -28,6 +28,8 @@ namespace LD48 {
                 
             if (Player.Instance.Resources >= _upgrades[nextLevel].Cost) {
                 FuelController.Instance.UpdateMax(_upgrades[nextLevel].MaxFuel);
+                Player.Instance.Resources -= _upgrades[nextLevel].Cost;
+
                 _currentLevel++;
             }
         }

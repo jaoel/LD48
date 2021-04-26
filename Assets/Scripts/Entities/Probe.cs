@@ -63,7 +63,7 @@ namespace LD48 {
         }
 
         public void OnPickedUpResource(Resource resource) {
-            Player.Instance.Resources += resource.Value;
+            Player.Instance.AddResource(resource.Value);
 
             Destroy(resource.gameObject);
 
