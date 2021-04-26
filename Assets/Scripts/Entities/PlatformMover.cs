@@ -23,7 +23,7 @@ namespace LD48 {
 
         private List<Probe> _probes = new List<Probe>();
 
-        private void Awake() {
+        private void Awake() {                                                                                                                                                          
             GameObject[] probes = GameObject.FindGameObjectsWithTag("Probe");
             foreach(GameObject go in probes) {
                 _probes.Add(go.GetComponent<Probe>());
@@ -33,7 +33,7 @@ namespace LD48 {
         protected override void OnInteract() {
 
             if (_probes.Any(x => x.CurrentState == Probe.State.Moving)){
-                return;
+                return;                                                  
             }
 
             base.OnInteract();

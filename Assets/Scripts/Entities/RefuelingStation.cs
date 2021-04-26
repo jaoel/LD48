@@ -8,7 +8,7 @@ namespace LD48 {
         protected override void OnInteract() {
             base.OnInteract();
 
-            FuelController.Instance.UpdateFuel(1.0f);
+            FuelController.Instance.UpdateFuel(20.0f);
         }
 
         protected override void OnRelease() {
