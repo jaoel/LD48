@@ -10,7 +10,7 @@ namespace LD48 {
 
         private float audioAmount = 0f;
 
-        private void Start() {
+        private void OnEnable() {
             audioSource.Play();
             audioSource.Pause();
         }
@@ -27,7 +27,6 @@ namespace LD48 {
 
         protected override void Update() {
             base.Update();
-
             if (Interacting && !FuelController.Instance.ToppedOff) {
                 audioAmount = Mathf.MoveTowards(audioAmount, 1f, Time.deltaTime * 2f);
             } else {
