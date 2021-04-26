@@ -21,7 +21,7 @@ namespace LD48 {
         }
 
         private void Start() {
-            UIManager.Instance.fuelText.SetText(((int)Fuel).ToString());
+            UpdateFuelUIText();
         }
 
         public void UpdateFuel(float rate) {
@@ -29,11 +29,15 @@ namespace LD48 {
 
             Fuel = Mathf.Max(Mathf.Min(Fuel, _maxFuel), 0.0f);
 
-            UIManager.Instance.fuelText.SetText(((int)Fuel).ToString());
+            UpdateFuelUIText();
 
             if (tank != null) {
                 tank.SetFuel(Fuel / _maxFuel);
             }
+        }
+
+        private void UpdateFuelUIText() {
+            UIManager.Instance.fuelText.SetText($"{(int)Fuel}/{(int)_maxFuel}");
         }
 
         public void UpdateMax(float newMax) {
