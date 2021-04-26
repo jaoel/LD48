@@ -22,7 +22,7 @@ namespace LD48 {
 
         private float animationSpeed = 1f;
 
-        public int Resources { get; set; } = 999999999;
+        public int Resources { get; set; };
         public int MaxResources { get; set; } = 1000;
 
         private void Awake() {
