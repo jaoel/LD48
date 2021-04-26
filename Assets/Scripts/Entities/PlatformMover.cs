@@ -95,12 +95,12 @@ namespace LD48 {
                 if (isDigging && _miner.drillSpeed <= 20) {
                     _currentSpeed = 0.0f;
                     _infinteShake.Kill(false);
-                    //_infinteShake = null;
+                    _infinteShake = null;
                     return;
                 }
 
-                if (_miner.drillSpeed > 0) {
-                    levelPos.y += _currentSpeed * Time.deltaTime * 0.2f;
+                if (isDigging) {
+                    levelPos.y += _currentSpeed * Time.deltaTime * 0.1f;
 
                     if (_infinteShake == null && Interacting && isDigging) {
                         _infinteShake = Camera.main.transform.parent.parent.DOShakePosition(9000, 0.1f, 2, 90).SetLoops(-1);
@@ -109,7 +109,7 @@ namespace LD48 {
                     levelPos.y += _currentSpeed * Time.deltaTime;
 
                     _infinteShake.Kill(false);
-                    //_infinteShake = null;
+                    _infinteShake = null;
                 }
 
                 if (Level.Instance != null && FuelController.Instance.Fuel > 0.0f) {
