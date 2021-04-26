@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 namespace LD48 {
     public class DrillStation : Interactable {
@@ -21,10 +22,26 @@ namespace LD48 {
         [SerializeField]
         private Transform _toolTipPos = null;
 
+        private Tweener _cameraShake = null;
+        private Tweener _infinteShake = null;
+
         protected override void OnInteract() {
             base.OnInteract();
             _active = !_active;
             _hasSeenTutorial = true;
+
+            if (_active) {
+
+                _cameraShake = Camera.main.transform.parent.parent.DOShakePosition(1, 1, 10, 180);//DOTween.Sequence();
+                //_cameraShake.Append(Camera.main.transform.parent.parent.DOShakePosition(1, 1, 10, 180)).AppendCallback(() => {
+                //    _infinteShake = Camera.main.transform.parent.parent.DOShakePosition(9000, 0.1f, 2, 90).SetLoops(-1);
+                //});
+            }
+            else {
+                _cameraShake = Camera.main.transform.parent.parent.DOShakePosition(1, 1, 10, 180);
+                //_cameraShake.Kill(true);
+                //_infinteShake.Kill(false);
+            }
         }
 
         protected override void OnRelease() {

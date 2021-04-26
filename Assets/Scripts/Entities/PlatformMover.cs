@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,8 @@ namespace LD48 {
         [SerializeField]
         private Transform _toolTipPos = null;
 
+        private Tweener _infinteShake = null;
+
         private void Awake() {                                                                                                                                                          
             GameObject[] probes = GameObject.FindGameObjectsWithTag("Probe");
             foreach(GameObject go in probes) {
@@ -47,6 +50,8 @@ namespace LD48 {
             base.OnRelease();
 
             _hasSeenTutorial = true;
+            _infinteShake.Kill(false);
+            _infinteShake = null;
         }
 
         protected override void Update() {
@@ -89,13 +94,23 @@ namespace LD48 {
 
                 if (isDigging && _miner.drillSpeed <= 20) {
                     _currentSpeed = 0.0f;
+                    _infinteShake.Kill(false);
+                    //_infinteShake = null;
                     return;
                 }
 
                 if (_miner.drillSpeed > 0) {
                     levelPos.y += _currentSpeed * Time.deltaTime * 0.2f;
+
+                    if (_infinteShake == null && Interacting && isDigging) {
+                        Debug.LogError("Creating shake");
+                        _infinteShake = Camera.main.transform.parent.parent.DOShakePosition(9000, 0.1f, 2, 90).SetLoops(-1);
+                    }
                 } else {
                     levelPos.y += _currentSpeed * Time.deltaTime;
+
+                    _infinteShake.Kill(false);
+                    //_infinteShake = null;
                 }
 
                 if (Level.Instance != null && FuelController.Instance.Fuel > 0.0f) {

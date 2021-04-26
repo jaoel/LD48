@@ -67,6 +67,9 @@ namespace LD48 {
 
             float distanceToTarget = Vector3.Distance(targetPos, transform.position);
             camera.transform.localPosition = Vector3.forward * Mathf.Lerp(0f, distanceToTarget - 1f, zoomLevel);
+
+            if (Input.GetKeyDown(KeyCode.Space)) {
+            }
         }
     }
 }
