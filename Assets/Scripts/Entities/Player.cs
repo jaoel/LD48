@@ -101,7 +101,7 @@ namespace LD48 {
                     animator.SetFloat("RunSpeed", forward.magnitude);
                 }
 
-                animationSpeed = Mathf.MoveTowards(animationSpeed, Mathf.Clamp01(_currentVelocity / _maxSpeed), Time.deltaTime * 2f);
+                animationSpeed = Mathf.MoveTowards(animationSpeed, Mathf.Clamp01(_currentVelocity / _maxSpeed), Time.deltaTime * 4f);
                 animator.SetFloat("RunSpeed2", 0.5f + 0.5f * animationSpeed);
             }
 
