@@ -18,6 +18,16 @@ namespace LD48 {
         [SerializeField]
         private Transform _toolTipPos = null;
 
+        public AudioSource audioSource;
+        public AudioClip onClip;
+        public AudioClip offClip;
+
+        private Probe.State lastState = Probe.State.Idle;
+
+        private void Start() {
+            lastState = _probe.CurrentState;
+        }
+
         protected override void Update() {
             base.Update();
 
@@ -33,6 +43,16 @@ namespace LD48 {
             if (PlayerInReach && !_hasSeenTutorial) {
                 UIManager.Instance.DisplayTextPanel(_toolTipPos, "Press [space] to fire mining probe");
             }
+
+            if (_probe.CurrentState != lastState) {
+                if (_probe.CurrentState == Probe.State.Idle) {
+                    audioSource.clip = offClip;
+                } else {
+                    audioSource.clip = onClip;
+                }
+                audioSource.Play();
+            }
+            lastState = _probe.CurrentState;
         }
 
         protected override void OnInteract() {
