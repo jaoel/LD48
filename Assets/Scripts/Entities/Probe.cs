@@ -24,6 +24,8 @@ namespace LD48 {
 
         public State CurrentState { get => _state; }
 
+        public AudioSource audioSource;
+
         private void Update() {
 
             if (_state == State.Moving) {
@@ -35,6 +37,7 @@ namespace LD48 {
                         pos.z = 0f;
                         _timeElapsed = 0.0f;
                         _state = State.Idle;
+                        audioSource.Stop();
                     }
 
                     probeHead.localPosition = pos;
@@ -42,6 +45,12 @@ namespace LD48 {
                 } else {
                     _timeElapsed = 0.0f;
                     _direction = -1f;
+                }
+
+                if (_direction > 0f) {
+                    audioSource.pitch = 1f;
+                } else {
+                    audioSource.pitch = 0.96f;
                 }
 
                 probeArm.localScale = new Vector3(1f, 1f, probeHead.localPosition.z);
@@ -54,6 +63,7 @@ namespace LD48 {
                 FuelController.Instance.UpdateFuel(-20.0f);
                 _direction = 1f;
                 _state = State.Moving;
+                audioSource.Play();
                 _timeElapsed = 0.0f;
             }
         }
