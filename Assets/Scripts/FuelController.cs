@@ -4,6 +4,8 @@ namespace LD48 {
     public class FuelController : MonoBehaviour {
         public static FuelController Instance { get; private set; } = null;
 
+        public FuelTank tank = null;
+
         private float _maxFuel = 100.0f;
         public float Fuel { get; private set; } = 0;
 
@@ -28,6 +30,10 @@ namespace LD48 {
             Fuel = Mathf.Max(Mathf.Min(Fuel, _maxFuel), 0.0f);
 
             UIManager.Instance.fuelText.SetText(((int)Fuel).ToString());
+
+            if (tank != null) {
+                tank.SetFuel(Fuel / _maxFuel);
+            }
         }
 
         public void UpdateMax(float newMax) {
