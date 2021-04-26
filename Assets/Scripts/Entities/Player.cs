@@ -14,7 +14,7 @@ namespace LD48 {
 
         private float _maxSpeed = 10.0f;
         public float _speed = 7.0f;
-        private float _acceleration = 30.0f;
+        private float _acceleration = 40.0f;
         private float _currentVelocity = 0;
 
         private Vector3 _oldForward = Vector3.zero;
@@ -97,8 +97,6 @@ namespace LD48 {
                     }
 
                     animator.SetFloat("RunSpeed", _oldForward.magnitude);
-
-                    Debug.Log(_currentVelocity);
                 } else {
                     animator.SetFloat("RunSpeed", forward.magnitude);
                 }
