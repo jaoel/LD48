@@ -20,6 +20,8 @@ namespace LD48 {
 
         public new Camera camera = null;
 
+        public Transform depthObject;
+
         private Vector3 targetPos;
         private Vector3 smoothDampVelV3;
         private float positionSmoothDampVelF;
@@ -37,7 +39,7 @@ namespace LD48 {
             Vector3 toPlatform = _playerTransform.position - _platformCenter;
             float horizontalDistance = new Vector2(toPlatform.x, toPlatform.z).magnitude;
 
-            if (horizontalDistance < 10f) {
+            if (horizontalDistance < 10f || depthObject.position.y > 50f) {
                 MusicManager.Instance.QueueClip(MusicManager.Instance.musicClip);
             } else {
 

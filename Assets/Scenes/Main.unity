@@ -566,6 +566,7 @@ MonoBehaviour:
   _lerpRate: 50
   zoomLevel: 0.8
   camera: {fileID: 1743401985}
+  depthObject: {fileID: 1043269340}
 --- !u!4 &1043269340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2614872500712677567, guid: 82478f759ca92ec4388ed6e0c5503e4f, type: 3}
