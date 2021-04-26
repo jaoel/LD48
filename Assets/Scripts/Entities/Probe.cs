@@ -25,6 +25,7 @@ namespace LD48 {
         public State CurrentState { get => _state; }
 
         public AudioSource audioSource;
+        public AudioSource pickupAudioSource;
 
         private void Update() {
 
@@ -76,6 +77,7 @@ namespace LD48 {
             Player.Instance.AddResource(resource.Value);
 
             Destroy(resource.gameObject);
+            pickupAudioSource.Play();
 
             _direction = -1f;
             _timeElapsed = 0.0f;
