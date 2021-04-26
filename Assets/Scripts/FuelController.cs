@@ -9,6 +9,8 @@ namespace LD48 {
         public float _maxFuel = 100.0f;
         public float Fuel { get; private set; } = 0;
 
+        public bool ToppedOff => Fuel >= _maxFuel;
+
         private void Awake() {
             if (Instance != null) {
                 Debug.LogError("FuelController already exists");

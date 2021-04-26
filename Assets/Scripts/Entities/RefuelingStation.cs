@@ -28,7 +28,7 @@ namespace LD48 {
         protected override void Update() {
             base.Update();
 
-            if (Interacting) {
+            if (Interacting && !FuelController.Instance.ToppedOff) {
                 audioAmount = Mathf.MoveTowards(audioAmount, 1f, Time.deltaTime * 2f);
             } else {
                 audioAmount = Mathf.MoveTowards(audioAmount, 0f, Time.deltaTime * 2f);
