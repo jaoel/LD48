@@ -48,7 +48,7 @@ namespace LD48 {
             base.Update();
 
             if (PlayerInReach) {
-                if (_currentUpgrade + 1 > _upgrades.Count) {
+                if (_currentUpgrade + 1 >= _upgrades.Count) {
                     UIManager.Instance.DisplayTextPanel(_toolTipPos, "Probes fully upgraded");
                 } else {
                     UIManager.Instance.DisplayTextPanel(_toolTipPos,

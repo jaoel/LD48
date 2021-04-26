@@ -44,7 +44,7 @@ namespace LD48 {
 
             if (PlayerInReach) {
 
-                if (_currentLevel + 1 > _upgrades.Count) {
+                if (_currentLevel + 1 >= _upgrades.Count) {
                     UIManager.Instance.DisplayTextPanel(_toolTipPos, "Fuel fully upgraded");
                 } else {
                     UIManager.Instance.DisplayTextPanel(_toolTipPos,
