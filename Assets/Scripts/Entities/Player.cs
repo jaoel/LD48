@@ -14,11 +14,13 @@ namespace LD48 {
 
         private float _maxSpeed = 10.0f;
         public float _speed = 7.0f;
-        private float _acceleration = 20.0f;
+        private float _acceleration = 30.0f;
         private float _currentVelocity = 0;
 
         private Vector3 _oldForward = Vector3.zero;
         public bool hasDiamond = false;
+
+        private float animationSpeed = 1f;
 
         public int Resources { get; set; }
         public int MaxResources { get; set; } = 1000;
@@ -101,7 +103,8 @@ namespace LD48 {
                     animator.SetFloat("RunSpeed", forward.magnitude);
                 }
 
-                animator.SetFloat("RunSpeed2", Mathf.Max(_currentVelocity / _maxSpeed, 0.1f));
+                animationSpeed = Mathf.MoveTowards(animationSpeed, Mathf.Clamp01(_currentVelocity / _maxSpeed), Time.deltaTime * 2f);
+                animator.SetFloat("RunSpeed2", 0.5f + 0.5f * animationSpeed);
             }
 
             UIManager.Instance.resourcesText.SetText(Resources.ToString() + "/" + MaxResources.ToString());
