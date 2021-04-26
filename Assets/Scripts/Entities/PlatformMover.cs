@@ -8,7 +8,7 @@ namespace LD48 {
     public class PlatformMover : Interactable {
         public Button button;
 
-        private float _currentSpeed = 0.0f;
+        public float currentSpeed = 0.0f;
 
         [SerializeField]
         public float _maxSpeed = 10.0f;
@@ -68,45 +68,45 @@ namespace LD48 {
 
             if (Interacting) {
                 if (_acc < 0) {
-                    _currentSpeed = Mathf.Max(_currentSpeed + _acc * Time.deltaTime, _maxSpeed);
+                    currentSpeed = Mathf.Max(currentSpeed + _acc * Time.deltaTime, _maxSpeed);
                 } else {
-                    _currentSpeed = Mathf.Min(_currentSpeed + _acc * Time.deltaTime, _maxSpeed);
+                    currentSpeed = Mathf.Min(currentSpeed + _acc * Time.deltaTime, _maxSpeed);
                 }
             }
-            else if (!Interacting && _currentSpeed != 0.0f) {
+            else if (!Interacting && currentSpeed != 0.0f) {
 
                 if (_deceleration < 0) {
-                    _currentSpeed = Mathf.Min(_currentSpeed - _deceleration * Time.deltaTime, 0.0f);
+                    currentSpeed = Mathf.Min(currentSpeed - _deceleration * Time.deltaTime, 0.0f);
                 }
                 else {
-                    _currentSpeed = Mathf.Max(_currentSpeed - _deceleration * Time.deltaTime, 0.0f);
+                    currentSpeed = Mathf.Max(currentSpeed - _deceleration * Time.deltaTime, 0.0f);
                 }
             }
 
             button.Pressed = Interacting;
 
-            if (_currentSpeed != 0.0f) {
+            if (currentSpeed != 0.0f) {
                 Vector3 levelPos = Level.Instance.transform.position;
 
-                float newPos = levelPos.y + _currentSpeed * Time.deltaTime;
+                float newPos = levelPos.y + currentSpeed * Time.deltaTime;
 
                 bool isDigging = Level.Instance.CheckIfDigging(newPos);
 
                 if (isDigging && _miner.drillSpeed <= 20) {
-                    _currentSpeed = 0.0f;
+                    currentSpeed = 0.0f;
                     _infinteShake.Kill(false);
                     _infinteShake = null;
                     return;
                 }
 
                 if (isDigging) {
-                    levelPos.y += _currentSpeed * Time.deltaTime * 0.1f;
+                    levelPos.y += currentSpeed * Time.deltaTime * 0.1f;
 
                     if (_infinteShake == null && Interacting && isDigging) {
                         _infinteShake = Camera.main.transform.parent.parent.DOShakePosition(9000, 0.1f, 2, 90).SetLoops(-1);
                     }
                 } else {
-                    levelPos.y += _currentSpeed * Time.deltaTime;
+                    levelPos.y += currentSpeed * Time.deltaTime;
 
                     _infinteShake.Kill(false);
                     _infinteShake = null;

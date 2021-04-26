@@ -17,6 +17,12 @@ namespace LD48 {
         public bool tooHot = false;
         private bool hasOpenedWinScreen = false;
 
+        public AudioSource drillingAudioSource;
+
+        private float drillingVolume = 0f;
+
+        private bool dugThisFrame = false;
+
         private void Awake() {
             if (Instance != null) {
                 Debug.LogError("Level already exists");
@@ -29,6 +35,11 @@ namespace LD48 {
             foreach (GameObject go in probes) {
                 _probes.Add(go.GetComponent<Probe>());
             }
+        }
+
+        private void Start() {
+            drillingAudioSource.Play();
+            drillingAudioSource.Pause();
         }
 
         public bool CheckIfDigging(float newY) {
@@ -46,6 +57,11 @@ namespace LD48 {
                     tooHot = true;
                     return false;
                 }
+            }
+
+            if (newY > _maxDepth) {
+                drillingVolume = Mathf.MoveTowards(drillingVolume, 1f, Time.deltaTime * 2f);
+                dugThisFrame = true;
             }
 
             _currentDepth = newY;
@@ -99,6 +115,22 @@ namespace LD48 {
             if (outOfFuelText != null) {
                 UIManager.Instance.DisplayTextPanel(Player.Instance.transform, outOfFuelText);
             }
+        }
+
+        private void LateUpdate() {
+            if (!dugThisFrame) {
+                drillingVolume = Mathf.MoveTowards(drillingVolume, 0f, Time.deltaTime * 2f);
+            }
+
+            drillingAudioSource.volume = drillingVolume;
+
+            if (drillingVolume == 0f) {
+                drillingAudioSource.Pause();
+            } else {
+                drillingAudioSource.UnPause();
+            }
+
+            dugThisFrame = false;
         }
     }
 }

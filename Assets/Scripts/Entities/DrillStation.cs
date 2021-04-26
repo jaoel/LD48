@@ -5,6 +5,8 @@ using DG.Tweening;
 
 namespace LD48 {
     public class DrillStation : Interactable {
+        public static DrillStation Instance { get; private set; } = null;
+
         private const float switchOnRot = 35f;
         private const float switchOffRot = 65f;
 
@@ -31,7 +33,10 @@ namespace LD48 {
 
         private bool lastActive = false;
 
+        public bool Active => _active;
+
         private void Awake() {
+            Instance = this;
             lastActive = _active;
         }
 
