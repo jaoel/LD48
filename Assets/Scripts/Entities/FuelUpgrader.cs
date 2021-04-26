@@ -17,6 +17,8 @@ namespace LD48 {
 
         private int _currentLevel = -1;
 
+        public AudioSource audioSource;
+
         [SerializeField]
         private Transform _toolTipPos = null;
         protected override void OnInteract() {
@@ -33,6 +35,8 @@ namespace LD48 {
                 Player.Instance.Resources -= _upgrades[nextLevel].Cost;
 
                 _currentLevel++;
+
+                audioSource.Play();
             }
         }
 
