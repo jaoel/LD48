@@ -15,6 +15,9 @@ namespace LD48 {
         [SerializeField]
         public float _deceleration = 10.0f;
 
+        [SerializeField]
+        private MinerVessel _miner = null;
+
         private void Awake() {
             
         }
@@ -52,17 +55,24 @@ namespace LD48 {
 
                 float newPos = levelPos.y + _currentSpeed * Time.deltaTime;
 
-                if (Level.Instance.CheckIfDigging(newPos)) {
+                bool isDigging = Level.Instance.CheckIfDigging(newPos);
+
+                if (isDigging && _miner.drillSpeed <= 20) {
+                    _currentSpeed = 0.0f;
+                    return;
+                }
+
+                if (_miner.drillSpeed > 0) {
                     levelPos.y += _currentSpeed * Time.deltaTime * 0.2f;
-                    FuelController.Instance.UpdateFuel(-1.0f);
                 } else {
                     levelPos.y += _currentSpeed * Time.deltaTime;
                 }
 
                 if (Level.Instance != null) {
-                    Level.Instance.MoveLevel(levelPos.y);
+                    if (Level.Instance.MoveLevel(levelPos.y)) {
+                        FuelController.Instance.UpdateFuel(-1.0f);
+                    }
                 }
-
             }
         }
     }

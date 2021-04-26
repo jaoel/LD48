@@ -22,9 +22,9 @@ namespace LD48 {
             return newY > _maxDepth;
         }
 
-        public void MoveLevel(float newY) {
+        public bool MoveLevel(float newY) {
             if (newY >= _maxDepth && FuelController.Instance.Fuel <= 0.0f) {
-                return;
+                return false;
             }
 
             _currentDepth = newY;
@@ -33,6 +33,12 @@ namespace LD48 {
             transform.position = pos;
 
             _maxDepth = Mathf.Max(newY, _maxDepth);
+
+            if (pos.y == 0) {
+                return false;
+            }
+
+            return true;
         }
 
     }
