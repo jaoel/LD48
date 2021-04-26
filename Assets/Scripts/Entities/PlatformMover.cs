@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace LD48 {
     public class PlatformMover : Interactable {
+        public Button button;
+
         private float _currentSpeed = 0.0f;
 
         [SerializeField]
@@ -49,6 +51,8 @@ namespace LD48 {
                     _currentSpeed = Mathf.Max(_currentSpeed - _deceleration * Time.deltaTime, 0.0f);
                 }
             }
+
+            button.Pressed = Interacting;
 
             if (_currentSpeed != 0.0f) {
                 Vector3 levelPos = Level.Instance.transform.position;
