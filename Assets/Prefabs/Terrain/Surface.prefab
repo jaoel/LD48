@@ -893,7 +893,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
       propertyPath: _upgrades.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
       propertyPath: _upgrades.Array.data[0].Cost
@@ -908,6 +908,10 @@ PrefabInstance:
       value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.data[3].Cost
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
       propertyPath: _upgrades.Array.data[0].MaxFuel
       value: 150
       objectReference: {fileID: 0}
@@ -918,6 +922,10 @@ PrefabInstance:
     - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
       propertyPath: _upgrades.Array.data[2].MaxFuel
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161512123345388777, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
+      propertyPath: _upgrades.Array.data[3].MaxFuel
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 9161512123345388779, guid: c7ee1998d353b7e419015c673ca6b846, type: 3}
       propertyPath: m_RootOrder
