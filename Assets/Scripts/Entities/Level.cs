@@ -88,22 +88,26 @@ namespace LD48 {
 
         public void Update() {
             if (FuelController.Instance.Fuel <= 0.0f && _currentDepth > 0.0f && !_probes.Any(x => x.CurrentState == Probe.State.Moving)) {
-                MoveLevel(transform.position.y - 20.0f * Time.deltaTime);
+                Vector3 toPlayer = Player.Instance.transform.position;
+                toPlayer.y = 0f;
+                if (toPlayer.magnitude < 10f) {
+                    MoveLevel(transform.position.y - 20.0f * Time.deltaTime);
 
-                if (outOfFuelTime < 0f) {
-                    outOfFuelTime = Time.time + 5f;
-                    if (Player.Instance.hasDiamond) {
-                        outOfFuelText = "Your cargo is too heavy\nYou'll have to leave\nthat thing behind!";
-                        Player.Instance.hasDiamond = false;
-                        Diamond.updated?.Invoke();
-                    } else {
-                        outOfFuelText = "Uncle Bob's express towing\nto the rescue!\nFor a price...";
+                    if (outOfFuelTime < 0f) {
+                        outOfFuelTime = Time.time + 5f;
+                        if (Player.Instance.hasDiamond) {
+                            outOfFuelText = "Your cargo is too heavy\nYou'll have to leave\nthat thing behind!";
+                            Player.Instance.hasDiamond = false;
+                            Diamond.updated?.Invoke();
+                        } else {
+                            outOfFuelText = "Uncle Bob's express towing\nto the rescue!\nFor a price...";
+                        }
                     }
-                }
 
-                if (!_destroyedResources) {
-                    Player.Instance.Resources = Mathf.CeilToInt((float)Player.Instance.Resources * 0.5f);
-                    _destroyedResources = true;
+                    if (!_destroyedResources) {
+                        Player.Instance.Resources = Mathf.CeilToInt((float)Player.Instance.Resources * 0.5f);
+                        _destroyedResources = true;
+                    }
                 }
             }
             else {

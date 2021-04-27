@@ -26,6 +26,8 @@ namespace LD48 {
                 Player.Instance.PlayPop();
             }
             Player.Instance.hasDiamond = true;
+            HandleExit(Player.Instance);
+
             updated?.Invoke();
 
             Player.Instance.ShowDiamondTooltip();
